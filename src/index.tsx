@@ -74,15 +74,17 @@ const liffStub: Liff = {
 };
 
 const context = createContext<LiffContext>({ liff: liffStub });
+context.displayName = 'LiffContext';
 
 export interface LiffProviderProps {
-  liffId: string;
+  liffId?: string;
   stubEnabled?: boolean | Partial<Liff>;
 }
 
+export const LiffConsumer = context.Consumer;
 export const LiffProvider: React.FC<LiffProviderProps> = ({
   children,
-  liffId,
+  liffId = '',
   stubEnabled = false,
 }) => {
   const [liff, setLiff] = useState<Liff>(liffStub);
