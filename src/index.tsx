@@ -3,6 +3,7 @@ import React, { createContext, useEffect, useState } from 'react';
 export type Liff =
   | typeof window.liff
   | {
+      id: string;
       getLineVersion: () => string;
       permanentLink: {
         createUrl: () => string;
@@ -14,11 +15,14 @@ export type LiffError = {
   message: string;
 };
 export type LiffContext = {
-  liff: Liff;
   error?: LiffError;
+  liff: Liff;
+  ready: boolean;
 };
 
 const liffStub: Liff = {
+  id: 'liffId',
+  ready: new Promise(() => {}),
   getOS: () => 'web',
   getLanguage: () => 'ja',
   getVersion: () => '2.1.3',
@@ -42,7 +46,12 @@ const liffStub: Liff = {
     sub: 'sub',
   }),
   getContext: () => ({ type: 'none', viewType: 'full' }),
-  getProfile: async () => ({ userId: 'userId', displayName: 'displayName' }),
+  getProfile: async () => ({
+    displayName: 'displayName',
+    pictureUrl: 'https://example.com/test.jpg',
+    statusMessage: '',
+    userId: 'userId',
+  }),
   getFriendship: async () => {
     return { friendFlag: true };
   },
@@ -73,7 +82,7 @@ const liffStub: Liff = {
   },
 };
 
-const context = createContext<LiffContext>({ liff: liffStub });
+const context = createContext<LiffContext>({ liff: liffStub, ready: false });
 context.displayName = 'LiffContext';
 
 export interface LiffProviderProps {
@@ -87,14 +96,16 @@ export const LiffProvider: React.FC<LiffProviderProps> = ({
   liffId = '',
   stubEnabled = false,
 }) => {
-  const [liff, setLiff] = useState<Liff>(liffStub);
   const [error, setError] = useState<LiffError>();
+  const [liff, setLiff] = useState(liffStub);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     if (stubEnabled) {
       if (typeof stubEnabled === 'object') {
         setLiff({ ...liffStub, ...stubEnabled });
       }
+      setReady(true);
       return;
     }
 
@@ -102,11 +113,12 @@ export const LiffProvider: React.FC<LiffProviderProps> = ({
       .init({ liffId })
       .then(() => {
         setLiff(window.liff);
+        setReady(true);
       })
       .catch(e => setError(e));
   }, [window.liff]);
 
-  return <context.Provider value={{ liff, error }}>{children}</context.Provider>;
+  return <context.Provider value={{ error, liff, ready }}>{children}</context.Provider>;
 };
 
 export const useLiff = (): LiffContext => React.useContext(context);
