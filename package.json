@@ -40,7 +40,9 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "liff-type": "^2.1.2",
     "react": "^16.13.0"
+  },
+  "optionalDependencies": {
+    "liff-type": "^2.1.2"
   }
 }
