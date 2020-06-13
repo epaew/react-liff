@@ -78,8 +78,8 @@ A react context provider for LIFF (LINE Front-end Framework)
           <React.StrictMode>
             <LiffProvider liffId={liffId} stubEnabled={stubEnabled}>
               <App />
-            </LiffProvider>,
-          </React.StrictMode>
+            </LiffProvider>
+          </React.StrictMode>,
           document.getElementById('root')
         );
         ```
