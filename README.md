@@ -1,4 +1,8 @@
 # react-liff
+[![npm version](https://badge.fury.io/js/react-liff.svg)](https://badge.fury.io/js/react-liff)
+[![Build Status](https://github.com/epaew/react-liff/workflows/Run%20Tests/badge.svg)](https://github.com/epaew/react-liff/actions?query=workflow%3A%22Run+Tests%22+branch%3A%22master%22)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4ff4ef0a7a4343c6ae52/maintainability)](https://codeclimate.com/github/epaew/react-liff/maintainability)
+
 A react context provider for LIFF (LINE Front-end Framework)
 
 ## Requirements
