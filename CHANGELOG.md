@@ -1,7 +1,14 @@
 # Unreleased
 ## Features
+* [#10](https://github.com/epaew/react-liff/pull/10)
+  * Add new export `createLiffContext<T>()`, for TypeScript user, now you can overload the context type definition of liff object.
+  * Define propTypes of LiffProvider, for non-TypeScript user.
+
 ## Bugfixes
 ## Others
+* [#10](https://github.com/epaew/react-liff/pull/10)
+  * Split the codes.
+  * Remove optional dependency of `liff-type`.
 
 # 0.2.0
 ## Features

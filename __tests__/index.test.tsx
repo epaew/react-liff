@@ -3,7 +3,7 @@ import './window.init.mock';
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 
-import { Liff, LiffProvider, useLiff } from '../src/index';
+import { LiffProvider, Types, useLiff } from '../src/index';
 
 const TestComponent: React.FC = () => {
   const { error, liff, ready } = useLiff();
@@ -19,7 +19,7 @@ const TestComponent: React.FC = () => {
 };
 
 describe('LiffProvider', () => {
-  const tree = (stubEnabled: boolean | Partial<Liff>) => (
+  const tree = (stubEnabled?: boolean | Partial<Types.Liff>) => (
     <LiffProvider liffId={'myLiffId'} stubEnabled={stubEnabled}>
       <TestComponent />
     </LiffProvider>
@@ -28,7 +28,7 @@ describe('LiffProvider', () => {
   describe('When stub is disabled', () => {
     describe('When the `window.liff.init()` succeeds', () => {
       it('shows myLiffId', async () => {
-        const { getByTestId } = render(tree(false));
+        const { getByTestId } = render(tree());
 
         await waitFor(() => {
           expect(getByTestId('ready').textContent).toBe('true');
