@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import { liffStub as stub } from './liff-stub';
 import { Liff, LiffError } from './types';
 
-interface initalizeLiffProviderProps<T> extends LiffProviderProps<T> {
-  setError: React.Dispatch<React.SetStateAction<LiffError | undefined>>;
-  setLiff: React.Dispatch<React.SetStateAction<T>>;
-  setReady: React.Dispatch<React.SetStateAction<boolean>>;
-}
 interface LiffProviderProps<T> {
   liffId: string;
   stubEnabled?: boolean | Partial<T>;
@@ -23,28 +18,20 @@ type CreateLiffContext = <T>() => {
   useLiff: () => LiffContext<T>;
 };
 
-const initializeLiffProvider = <T extends any>({
-  liffId,
-  setError,
-  setLiff,
-  setReady,
-  stubEnabled,
-}: initalizeLiffProviderProps<T>) => {
-  return () => {
-    if (stubEnabled) {
-      if (typeof stubEnabled === 'object') setLiff({ ...stub, ...stubEnabled } as T);
-      setReady(true);
-      return;
+const initLiff = async <T extends any>({ liffId, stubEnabled }: LiffProviderProps<T>) => {
+  if (stubEnabled) {
+    if (typeof stubEnabled === 'object') {
+      return { liff: { ...stub, ...stubEnabled }, ready: true };
     }
+    return { liff: stub, ready: true };
+  }
 
-    window.liff
-      .init({ liffId })
-      .then(() => {
-        setLiff(window.liff as T);
-        setReady(true);
-      })
-      .catch(e => setError(e));
-  };
+  try {
+    await window.liff.init({ liffId });
+    return { liff: window.liff, ready: true };
+  } catch (error) {
+    return { error, ready: false };
+  }
 };
 
 const LiffProviderPropTypes = {
@@ -63,9 +50,14 @@ const createLiffProvider = <T extends any>(context: React.Context<LiffContext<T>
     const [liff, setLiff] = useState<T>(stub as T);
     const [ready, setReady] = useState(false);
 
-    useEffect(initializeLiffProvider({ liffId, setError, setLiff, setReady, stubEnabled }), [
-      window.liff,
-    ]);
+    useEffect(() => {
+      (async () => {
+        const { error, liff, ready } = await initLiff({ liffId, stubEnabled });
+        setError(error);
+        setLiff(liff as T);
+        setReady(ready);
+      })();
+    }, [liffId, stubEnabled]);
 
     return <context.Provider value={{ error, liff, ready }}>{children}</context.Provider>;
   };
