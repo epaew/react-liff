@@ -1,2 +1,105 @@
 # react-liff
-A react context provider for liff (LINE Front-end Framework)
+A react context provider for LIFF (LINE Front-end Framework)
+
+## Requirements
+* [React](https://reactjs.org/) v16.13 or later
+  * React Native is not supported.
+* [LIFF SDK](https://developers.line.biz/en/docs/liff/release-notes/#liff-version-and-release-date) version 2
+
+### Optional
+* [liff-type](https://github.com/S-O-L-A-R/liff-type): Type definition for LIFF SDK
+
+## Getting started
+1. Create your React application development environment.
+    * e.g. `npx create-react-app app-name`
+2. Add `react-liff` to your app dependencies.
+    ```sh
+    npm i --save react-liff
+    # or
+    yarn add react-liff
+    ```
+3. Update `index.html` to load LIFF SDK
+    * https://developers.line.biz/en/docs/liff/developing-liff-apps/#developing-a-liff-app
+        ```diff
+        +    <script defer charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
+        ```
+4. Import `react-liff` to your app and use it!
+    * An example of src/App.js
+        ```javascript
+        import React, { useEffect, useState } from 'react';
+        import { useLiff } from 'react-liff';
+
+        import './App.css';
+
+        const App = () => {
+          const [displayName, setDisplayName] = useState('');
+          const { error, liff, ready } = useLiff();
+
+          useEffect(() => {
+            (async () => {
+              const profile = await liff.getProfile();
+              setDisplayName(profile.displayName);
+            })();
+          }, [liff]);
+
+          const showDisplayName = () => {
+            if (error) return <p>Something is wrong.</p>;
+            if (!ready) return <p>Loading...</p>;
+
+            return <p>liff.getProfile().displayName: {displayName}</p>
+          }
+
+          return (
+            <div className="App">
+              <header className="App-header">{showDisplayName()}</header>
+            </div>
+          );
+        }
+
+        export default App;
+        ```
+    * An example of src/index.js
+        ```javascript
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        import { LiffProvider } from 'react-liff';
+
+        import './index.css';
+        import App from './App';
+
+        const liffId = process.env.LINE_LIFF_ID;
+        const stubEnabled = process.env.NODE_ENV !== 'production';
+
+        ReactDOM.render(
+          <React.StrictMode>
+            <LiffProvider liffId={liffId} stubEnabled={stubEnabled}>
+              <App />
+            </LiffProvider>,
+          </React.StrictMode>
+          document.getElementById('root')
+        );
+        ```
+
+## API
+### LiffProvider props
+* `liffId`: `string`, required
+  * The ID of your LIFF application.
+  * When you using stubs, you can specify empty string.
+* `stubEnabled`: `boolean | Object | undefined`, optional
+  * `false` or `undefined`: Provider uses LIFF SDK (for Production).
+  * `true`: Provider uses stubs defined in library.
+  * `Object`: Provider uses the stubs you specified here.
+
+### LiffConsumer / useLiff return values
+* `error`: `LiffError | undefined`
+  * Returns LiffError if `liff.init()` failed.
+* `ready`: `boolean`
+  * Returns `true` after `liff.init()` or stub setup has successfully completed.
+* `liff`: `Liff`
+  * Returns liff object.
+
+## CHANGELOG
+[CHANGELOG](./CHANGELOG.md)
+
+## LICENSE
+[MIT](./LICENSE)
