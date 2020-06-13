@@ -1,11 +1,13 @@
 # Unreleased
+## Features
+## Bugfixes
+## Others
 
+# 0.2.0
 ## Features
 * [#2](https://github.com/epaew/react-liff/pull/2) Add export `LiffConsumer`
 * [#4](https://github.com/epaew/react-liff/pull/4) Add flag to check "is liff ready?"
-
-## Bugfix
-
+## Bugfixes
 ## Others
 * [#2](https://github.com/epaew/react-liff/pull/2) Move dependency of package `liff-type` from peer to optional
 * [#4](https://github.com/epaew/react-liff/pull/4) Add tests
