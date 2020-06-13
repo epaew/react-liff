@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { liffStub as stub } from './liff-stub';
 import { Liff, LiffError } from './types';
 
@@ -46,6 +47,12 @@ const initializeLiffProvider = <T extends any>({
   };
 };
 
+const LiffProviderPropTypes = {
+  children: PropTypes.element.isRequired,
+  liffId: PropTypes.string.isRequired,
+  stubEnabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+};
+
 const createLiffProvider = <T extends any>(context: React.Context<LiffContext<T>>) => {
   const LiffProvider: React.FC<LiffProviderProps<T>> = ({
     children,
@@ -63,6 +70,8 @@ const createLiffProvider = <T extends any>(context: React.Context<LiffContext<T>
     return <context.Provider value={{ error, liff, ready }}>{children}</context.Provider>;
   };
 
+  /* @ts-ignore */
+  LiffProvider.propTypes = LiffProviderPropTypes;
   return LiffProvider;
 };
 
