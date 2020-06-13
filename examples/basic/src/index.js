@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { LiffProvider } from 'react-liff';
+
+const liffId = process.env.LINE_LIFF_ID ?? '';
+const stubEnabled = process.env.NODE_ENV !== 'production';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <LiffProvider liffId={liffId} stubEnabled={stubEnabled}>
+      <App />
+    </LiffProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
