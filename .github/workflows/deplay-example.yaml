@@ -1,0 +1,97 @@
+name: Deploy example app to gh-pages
+
+on:
+  # pull_request:
+  #   paths:
+  #     - examples/**
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build react-liff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Fetch yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Fetch yarn cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn run build
+      - name: Upload the result of build react-liff
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  build-example-app:
+    name: Build example app
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    defaults:
+      run:
+        working-directory: examples/basic
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Download the result of build react-liff
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: Fetch yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Fetch yarn cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - run: yarn install
+      - run: yarn run build
+        env:
+          REACT_APP_LINE_LIFF_ID: ${{ secrets.LINE_LIFF_ID }}
+          NODE_ENV: production
+          PUBLIC_URL: /react-liff
+      - name: Upload the result of build react-liff
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: examples/basic/build
+
+  deploy:
+    name: Deploy to gh-pages
+    runs-on: ubuntu-latest
+    needs:
+      - build-example-app
+    steps:
+      - name: Download the result of build react-liff
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: examples/basic/build
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          cname: www.epaew.net
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./examples/basic/build
