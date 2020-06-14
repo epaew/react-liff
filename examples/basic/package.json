@@ -31,7 +31,7 @@
     "@testing-library/user-event": "^11.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-liff": "file:../../",
+    "react-liff": "file:../..",
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2"
   }
