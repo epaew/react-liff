@@ -1,5 +1,8 @@
 import { Liff } from './types';
 
+// login status
+let loggedIn = false;
+
 const bluetooth = {
   getAvailability: async () => false,
   requestDevice: async () => ({
@@ -25,10 +28,14 @@ export const liffStub: Liff = {
   getVersion: () => '2.1.3',
   getLineVersion: () => '10.8.0',
   isInClient: () => true,
-  isLoggedIn: () => true,
+  isLoggedIn: () => loggedIn,
   isApiAvailable: () => true,
-  login: () => {},
-  logout: () => {},
+  login: () => {
+    loggedIn = true;
+  },
+  logout: () => {
+    loggedIn = false;
+  },
   getAccessToken: () => 'DummyAccessToken',
   getIDToken: () => 'DummyIDToken',
   getDecodedIDToken: () => ({

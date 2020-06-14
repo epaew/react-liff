@@ -17,8 +17,12 @@ function App() {
       const profile = await liff.getProfile();
       setDisplayName(profile.displayName);
     })();
-  }, [liff, loggedIn]);
+  });
 
+  const loginHandler = () => {
+    liff.login();
+    setLoggedIn(liff.isLoggedIn());
+  };
   const logoutHandler = () => {
     liff.logout();
     setLoggedIn(liff.isLoggedIn());
@@ -29,7 +33,7 @@ function App() {
     if (!ready) return <p>Loading...</p>;
 
     if (!loggedIn) {
-      return <button className="App-button" onClick={liff.login}>Login</button>;
+      return <button className="App-button" onClick={loginHandler}>Login</button>;
     }
     return (
       <>
