@@ -5,10 +5,8 @@ import './App.css';
 import { useLiff } from 'react-liff';
 
 function App() {
-  const { error, liff, ready } = useLiff();
-
+  const { error, liff, loggedIn, ready } = useLiff();
   const [displayName, setDisplayName] = useState('');
-  const [loggedIn, setLoggedIn] = useState(liff.isLoggedIn());
 
   useEffect(() => {
     if (!loggedIn) return;
@@ -21,11 +19,9 @@ function App() {
 
   const loginHandler = () => {
     liff.login();
-    setLoggedIn(liff.isLoggedIn());
   };
   const logoutHandler = () => {
     liff.logout();
-    setLoggedIn(liff.isLoggedIn());
   };
 
   const showDisplayName = () => {
