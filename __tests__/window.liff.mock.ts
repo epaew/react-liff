@@ -1,4 +1,4 @@
-import { Liff, Loginable } from '../src/types';
+import { Liff, Loginable } from '#/types';
 
 let loggedIn = false;
 

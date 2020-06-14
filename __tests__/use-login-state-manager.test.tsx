@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
-import { useLoginStateManager } from '../src/use-login-state-manager';
+import { useLoginStateManager } from '#/use-login-state-manager';
 
 import { createLoginableMock } from './window.liff.mock';
 

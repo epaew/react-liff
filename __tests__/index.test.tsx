@@ -1,9 +1,9 @@
 import './window.liff.mock';
 
-import * as React from 'react';
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 
-import { LiffProvider, Types, useLiff } from '../src/index';
+import { LiffProvider, Types, useLiff } from '#/index';
 
 const TestComponent: React.FC = () => {
   const { error, liff, ready } = useLiff();
