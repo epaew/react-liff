@@ -1,6 +1,6 @@
-import './window.init.mock';
+import './window.liff.mock';
 
-import React from 'react';
+import * as React from 'react';
 import { render, waitFor } from '@testing-library/react';
 
 import { LiffProvider, Types, useLiff } from '../src/index';
