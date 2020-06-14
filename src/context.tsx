@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { liffStub as stub } from './liff-stub';
 import { Liff, LiffError } from './types';
+import { useLoginStateManager } from './use-login-state-manager';
 
 interface LiffProviderProps<T> {
   liffId: string;
@@ -10,6 +11,7 @@ interface LiffProviderProps<T> {
 interface LiffContext<T> {
   error?: LiffError;
   liff: T;
+  loggedIn: boolean;
   ready: boolean;
 }
 type CreateLiffContext = <T>() => {
@@ -47,8 +49,9 @@ const createLiffProvider = <T extends any>(context: React.Context<LiffContext<T>
     stubEnabled = false,
   }) => {
     const [error, setError] = useState<LiffError>();
-    const [liff, setLiff] = useState<T>(stub as T);
+    const [originalLiff, setLiff] = useState<T>(stub as T);
     const [ready, setReady] = useState(false);
+    const [loggedIn, liff] = useLoginStateManager(originalLiff);
 
     useEffect(() => {
       (async () => {
@@ -59,7 +62,7 @@ const createLiffProvider = <T extends any>(context: React.Context<LiffContext<T>
       })();
     }, [liffId, stubEnabled]);
 
-    return <context.Provider value={{ error, liff, ready }}>{children}</context.Provider>;
+    return <context.Provider value={{ error, liff, loggedIn, ready }}>{children}</context.Provider>;
   };
 
   /* @ts-ignore */
@@ -68,7 +71,7 @@ const createLiffProvider = <T extends any>(context: React.Context<LiffContext<T>
 };
 
 export const createLiffContext: CreateLiffContext = <T extends any>() => {
-  const context = createContext<LiffContext<T>>({ liff: stub as T, ready: false });
+  const context = createContext<LiffContext<T>>({ liff: stub as T, loggedIn: false, ready: false });
   context.displayName = 'LiffContext';
 
   return {
