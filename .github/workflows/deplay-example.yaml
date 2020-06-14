@@ -1,9 +1,7 @@
 name: Deploy example app to gh-pages
 
 on:
-  # pull_request:
-  #   paths:
-  #     - examples/**
+  # pull_request: {}
   push:
     branches:
       - master
