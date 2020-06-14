@@ -3,16 +3,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import { useLoginStateManager } from '../src/use-login-state-manager';
 
-let loggedIn = false;
-const createLiffMock = () => ({
-  isLoggedIn: jest.fn().mockImplementation(() => loggedIn),
-  login: jest.fn().mockImplementation(() => {
-    loggedIn = true;
-  }),
-  logout: jest.fn().mockImplementation(() => {
-    loggedIn = false;
-  }),
-});
+import { createLoginableMock } from './window.liff.mock';
 
 // eslint-disable-next-line react/prop-types
 const TestComponent: React.FC<any> = ({ liff }: { liff?: any }) => {
@@ -64,7 +55,7 @@ describe('useLoginStateManager', () => {
 
   describe('When liff is defined', () => {
     it('returns false as initial login status', async () => {
-      const liffMock = createLiffMock();
+      const liffMock = createLoginableMock();
       const { getByTestId } = subject(liffMock);
 
       await waitFor(() => {
@@ -74,7 +65,7 @@ describe('useLoginStateManager', () => {
     });
 
     it('returns true as login status after login', async () => {
-      const liffMock = createLiffMock();
+      const liffMock = createLoginableMock();
       const { getByTestId } = subject(liffMock);
       fireEvent.click(getByTestId('login'));
 
@@ -85,7 +76,7 @@ describe('useLoginStateManager', () => {
     });
 
     it('returns false as login status after logout', async () => {
-      const liffMock = createLiffMock();
+      const liffMock = createLoginableMock();
       const { getByTestId } = subject(liffMock);
       fireEvent.click(getByTestId('logout'));
 

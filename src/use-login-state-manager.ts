@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-export const useLoginStateManager = (liff: any): [boolean, any] => {
+import { Loginable } from './types';
+
+export const useLoginStateManager = <T extends Loginable>(liff?: T): [boolean, T] => {
   const { isLoggedIn = () => false, login = () => {}, logout = () => {}, ...rest } = liff ?? {};
   const [loggedIn, setLoggedIn] = useState(isLoggedIn());
 
@@ -13,5 +15,5 @@ export const useLoginStateManager = (liff: any): [boolean, any] => {
     setLoggedIn(isLoggedIn());
   };
 
-  return [loggedIn, { ...rest, isLoggedIn, login: customLogin, logout: customLogout }];
+  return [loggedIn, { ...rest, isLoggedIn, login: customLogin, logout: customLogout } as T];
 };
