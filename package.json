@@ -1,6 +1,6 @@
 {
   "name": "react-liff",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": false,
   "description": "A react context provider for LIFF (LINE Front-end Framework)",
   "keywords": [
@@ -42,6 +42,7 @@
     "jest": "^26.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
@@ -49,6 +50,7 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
+    "prop-types": "*",
     "react": "^16.13.0"
   }
 }
