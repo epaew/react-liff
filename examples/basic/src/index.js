@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import { LiffProvider } from 'react-liff';
 
-const liffId = process.env.LINE_LIFF_ID ?? '';
+const liffId = process.env.REACT_APP_LINE_LIFF_ID ?? '';
 const stubEnabled = process.env.NODE_ENV !== 'production';
 
 ReactDOM.render(
