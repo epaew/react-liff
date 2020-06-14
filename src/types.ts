@@ -54,8 +54,15 @@ interface Profile {
 /*
  * Public interfaces
  */
-export interface Liff {
-  id: string;
+export interface Loginable {
+  isLoggedIn: () => boolean;
+  login: () => void;
+  logout: () => void;
+}
+export type LiffBase = Loginable;
+
+export interface Liff extends LiffBase {
+  id: string | null;
   ready: Promise<void>;
   init: Init;
   getOS: () => 'ios' | 'android' | 'web';
@@ -63,10 +70,7 @@ export interface Liff {
   getVersion: () => string;
   getLineVersion: () => string | null;
   isInClient: () => boolean;
-  isLoggedIn: () => boolean;
   isApiAvailable: (apiName: string) => boolean;
-  login: () => void;
-  logout: () => void;
   getAccessToken: () => string;
   getIDToken: () => string;
   getDecodedIDToken: () => DecodedIdToken;
