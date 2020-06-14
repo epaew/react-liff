@@ -2,6 +2,7 @@
 ## Features
 ## Bugfixes
 ## Others
+* [#14](https://github.com/epaew/react-liff/pull/14) Update the stub implementation: make login state updatable.
 
 # 0.3.0
 ## Features
