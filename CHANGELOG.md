@@ -2,6 +2,7 @@
 ## Features
 ## Bugfixes
 ## Others
+* [#21](https://github.com/epaew/react-liff/pull/21) Change target version of tsconfig.json: from ES2019 to ES2015.
 
 # 0.4.0
 ## Features
