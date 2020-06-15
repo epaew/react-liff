@@ -4,10 +4,8 @@
   "private": true,
   "scripts": {
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "postinstall": "rimraf node_modules/react-liff/node_modules",
-    "start": "react-scripts start",
-    "test": "react-scripts test"
+    "postinstall": "rimraf node_modules/react-liff/node_modules/react{,-dom}",
+    "start": "react-scripts start"
   },
   "browserslist": {
     "production": [
@@ -26,9 +24,6 @@
     "root": true
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.10.0",
-    "@testing-library/react": "^10.2.1",
-    "@testing-library/user-event": "^11.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-liff": "file:../..",
