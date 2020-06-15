@@ -2,8 +2,13 @@
 ## Features
 ## Bugfixes
 ## Others
+
+# 0.4.0
+## Features
 * [#14](https://github.com/epaew/react-liff/pull/14) Update the stub implementation: make login state updatable.
 * [#15](https://github.com/epaew/react-liff/pull/15) Add `loggedIn` state in LiffContext
+## Bugfixes
+## Others
 
 # 0.3.0
 ## Features
