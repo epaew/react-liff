@@ -1,6 +1,8 @@
 # Unreleased
 ## Features
 ## Bugfixes
+
+# 0.4.2
 ## Others
 * [#23](https://github.com/epaew/react-liff/pull/23) Change the module specification of tsconfig.json: from es2015 to commonjs.
 
