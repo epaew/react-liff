@@ -27,6 +27,7 @@
     "test:coverage": "jest --coverage"
   },
   "devDependencies": {
+    "@line/liff": "^2.3.0",
     "@testing-library/react": "^10.2.1",
     "@types/jest": "^26.0.0",
     "@types/prop-types": "^15.7.3",
@@ -52,5 +53,8 @@
   "peerDependencies": {
     "prop-types": "*",
     "react": "^16.13.0"
+  },
+  "optionalDependencies": {
+    "@line/liff": "^2.3.0"
   }
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import { liff as liffMock } from '@line/liff';
 
 import { useLoginStateManager } from '#/use-login-state-manager';
 
-import { createLoginableMock } from './window.liff.mock';
+jest.mock('@line/liff');
 
 // eslint-disable-next-line react/prop-types
 const TestComponent: React.FC<any> = ({ liff }: { liff?: any }) => {
@@ -55,7 +56,6 @@ describe('useLoginStateManager', () => {
 
   describe('When liff is defined', () => {
     it('returns false as initial login status', async () => {
-      const liffMock = createLoginableMock();
       const { getByTestId } = subject(liffMock);
 
       await waitFor(() => {
@@ -65,7 +65,6 @@ describe('useLoginStateManager', () => {
     });
 
     it('returns true as login status after login', async () => {
-      const liffMock = createLoginableMock();
       const { getByTestId } = subject(liffMock);
       fireEvent.click(getByTestId('login'));
 
@@ -76,7 +75,6 @@ describe('useLoginStateManager', () => {
     });
 
     it('returns false as login status after logout', async () => {
-      const liffMock = createLoginableMock();
       const { getByTestId } = subject(liffMock);
       fireEvent.click(getByTestId('logout'));
 

@@ -10,24 +10,17 @@ A react context provider for LIFF (LINE Front-end Framework)
   * React Native is not supported.
 * [LIFF SDK](https://developers.line.biz/en/docs/liff/release-notes/#liff-version-and-release-date) version 2
 
-### Optional
-* [liff-type](https://github.com/S-O-L-A-R/liff-type): Type definition for LIFF SDK
-
 ## Getting started
+### When you use NPM version of LIFF SDK (Recommended)
 1. Create your React application development environment.
     * e.g. `npx create-react-app app-name`
 2. Add `react-liff` to your app dependencies.
     ```sh
-    npm i --save react-liff
+    npm i --save @line/liff react-liff
     # or
-    yarn add react-liff
+    yarn add @line/liff react-liff
     ```
-3. Update `index.html` to load LIFF SDK
-    * https://developers.line.biz/en/docs/liff/developing-liff-apps/#developing-a-liff-app
-        ```diff
-        +    <script defer charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
-        ```
-4. Import `react-liff` to your app and use it!
+3. Import `react-liff` to your app and use it!
     * An example of src/App.js
         ```javascript
         import React, { useEffect, useState } from 'react';
@@ -93,6 +86,22 @@ A react context provider for LIFF (LINE Front-end Framework)
           document.getElementById('root')
         );
         ```
+
+### When you use CDN version of LIFF SDK
+1. Create your React application development environment.
+    * e.g. `npx create-react-app app-name`
+2. Add `react-liff` to your app dependencies.
+    ```sh
+    npm i --save react-liff
+    # or
+    yarn add react-liff
+    ```
+3. Update `index.html` to load LIFF SDK
+    * https://developers.line.biz/en/docs/liff/developing-liff-apps/#developing-a-liff-app
+        ```diff
+        +    <script defer charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
+        ```
+4. Import `react-liff` to your app and use it!
 
 ## API
 ### LiffProvider props

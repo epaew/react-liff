@@ -1,9 +1,11 @@
-import './window.liff.mock';
-
 import React from 'react';
+import { liff } from '@line/liff';
 import { render, waitFor } from '@testing-library/react';
 
-import { LiffProvider, Types, useLiff } from '#/index';
+jest.mock('@line/liff');
+
+import { LiffProvider, useLiff } from '#/index';
+import { Liff } from '#/types';
 
 const TestComponent: React.FC = () => {
   const { error, liff, ready } = useLiff();
@@ -12,21 +14,20 @@ const TestComponent: React.FC = () => {
     <>
       <p data-testid="ready">{ready.toString()}</p>
       <p data-testid="error.message">{error?.message ?? ''}</p>
-      {/* @ts-ignore */}
       <p data-testid="liff.id">{liff?.id}</p>
     </>
   );
 };
 
 describe('LiffProvider', () => {
-  const tree = (stubEnabled?: boolean | Partial<Types.Liff>) => (
+  const tree = (stubEnabled?: boolean | Partial<Liff>) => (
     <LiffProvider liffId={'myLiffId'} stubEnabled={stubEnabled}>
       <TestComponent />
     </LiffProvider>
   );
 
   describe('When stub is disabled', () => {
-    describe('When the `window.liff.init()` succeeds', () => {
+    describe('When the `liff.init()` succeeds', () => {
       it('shows myLiffId', async () => {
         const { getByTestId } = render(tree());
 
@@ -38,9 +39,9 @@ describe('LiffProvider', () => {
       });
     });
 
-    describe('When the `window.liff.init()` failed', () => {
+    describe('When the `liff.init()` failed', () => {
       beforeEach(() => {
-        window.liff.init = jest.fn().mockImplementationOnce(async () => {
+        liff.init = jest.fn().mockImplementationOnce(async () => {
           throw new Error('Failed to initialize liff.');
         });
       });
