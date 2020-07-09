@@ -3,33 +3,18 @@ import { Liff } from './types';
 // login status
 let loggedIn = false;
 
-const bluetooth = {
-  getAvailability: async () => false,
-  requestDevice: async () => ({
-    id: 'id',
-    watchingAdvertisements: false,
-    watchAdvertisements: async () => {},
-    unwatchAdvertisements: () => {},
-    addEventListener: () => {},
-    removeEventListener: () => {},
-  }),
-};
-const permanentLink = {
+const permanentLink: Liff['permanentLink'] = {
   createUrl: () => 'https://liff.line.me/liffId/path',
-  setExtraQueryParams: () => {},
+  setExtraQueryParam: () => {},
 };
 
 export const liffStub: Liff = {
-  id: 'liffId',
   init: async () => {},
-  ready: new Promise(() => {}),
   getOS: () => 'web',
-  getLanguage: () => 'ja',
   getVersion: () => '2.1.3',
-  getLineVersion: () => '10.8.0',
+  getLanguage: () => 'ja',
   isInClient: () => true,
   isLoggedIn: () => loggedIn,
-  isApiAvailable: () => true,
   login: () => {
     loggedIn = true;
   },
@@ -51,8 +36,10 @@ export const liffStub: Liff = {
   }),
   getContext: () => ({
     type: 'none',
-    viewType: 'full',
+    groupId: 'groupId',
     userId: 'userId',
+    endpointUrl: 'endpointUrl',
+    viewType: 'full',
     availability: {
       shareTargetPicker: {
         permission: false,
@@ -60,25 +47,43 @@ export const liffStub: Liff = {
       },
     },
   }),
+  openWindow: ({ url, external }) => {
+    external ? window.open(url) : (window.location.href = url);
+  },
+  closeWindow: () => {
+    window.close();
+  },
+  getFeatures: () => [],
+  getFriendship: async () => {
+    return { friendFlag: true };
+  },
+  checkFeature: () => true,
+  getAId: () => undefined,
+  getProfilePlus: () => undefined,
+  getIsVideoAutoPlay: () => true,
+  getLineVersion: () => '10.8.0',
+  isApiAvailable: () => true,
   getProfile: async () => ({
     displayName: 'displayName',
     pictureUrl: 'https://example.com/test.jpg',
     statusMessage: '',
     userId: 'userId',
   }),
-  getFriendship: async () => {
-    return { friendFlag: true };
-  },
-  permanentLink,
   sendMessages: async () => {},
-  openWindow: ({ url, external }) => {
-    external ? window.open(url) : (window.location.href = url);
-  },
+  userPicker: async () => null,
   shareTargetPicker: async () => {},
+  permanentLink,
+  ready: new Promise(() => {}),
+  id: 'liffId',
+  _dispatchEvent: () => {},
+  _call: async () => {},
+  _addListener: () => {},
+  _removeListener: () => {},
+  _postMessage: () => {},
+
+  // Extras
+  addToHomeScreen: async () => 0,
   scanCode: async () => ({ value: 'DummyCode' }),
-  closeWindow: () => {
-    window.close();
-  },
-  initPlugins: async () => {},
-  bluetooth,
+  getAdvertisingId: async () => null,
+  initPlugins: async () => [],
 };
