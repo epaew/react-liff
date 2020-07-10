@@ -1,8 +1,11 @@
 # Unreleased
 ## Features
-* [#45](https://github.com/epaew/react-liff/pull/45) Add `@line/liff` as optionalDependency.
 ## Bugfixes
 ## Others
+
+# 0.5.0
+## Features
+* [#45](https://github.com/epaew/react-liff/pull/45) Add `@line/liff` as optionalDependency.
 
 # 0.4.2
 ## Others
