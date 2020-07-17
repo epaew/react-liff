@@ -492,9 +492,9 @@
     file-type "^7.7.1"
 
 "@line/liff@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.3.0.tgz#e2f7f97a0a28f4f1cfd1704a037c59ee016e0f7a"
-  integrity sha512-hkbq2gP7kLujQ7lh4Z8AqFUU5TBzvx1ImB/qr+5K2uaZsVWCSyGPTO+yxIPeuShJjRYALzjiPDrp+QHgYqD6zg==
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.3.1.tgz#c924dd68e9d6477488eba461239c779ef0475713"
+  integrity sha512-vPV8p/nMEgJal4DvclFfsu/H1uu7T+q+4Ku5URGuNdcj6I7Fgff/t8x/X4NBfBK1iIEC7YsXX7PLFfzo04HlUg==
   dependencies:
     "@line/bot-sdk" "^7.0.0"
     js-crypto-ec "^0.5.6"
