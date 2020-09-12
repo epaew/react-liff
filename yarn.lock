@@ -529,10 +529,10 @@
     body-parser "^1.19.0"
     file-type "^7.7.1"
 
-"@line/liff@^2.3.0":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.3.1.tgz#c924dd68e9d6477488eba461239c779ef0475713"
-  integrity sha512-vPV8p/nMEgJal4DvclFfsu/H1uu7T+q+4Ku5URGuNdcj6I7Fgff/t8x/X4NBfBK1iIEC7YsXX7PLFfzo04HlUg==
+"@line/liff@~2.3.0, ~2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.4.0.tgz#b3f841e8ee390c940e0d937cdb62014214154bcf"
+  integrity sha512-krX4kEPDQajz9dvLvnzl8Hfo4m3RYIBO9MWOCytVn6xdEOMGhojwv4SCt7TDke/XPstgO5ft7gwi9le0Afs2CA==
   dependencies:
     "@line/bot-sdk" "^7.0.0"
     js-crypto-ec "^0.5.6"
