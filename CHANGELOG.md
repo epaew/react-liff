@@ -2,6 +2,7 @@
 ## Features
 ## Bugfixes
 * [#107](https://github.com/epaew/react-liff/pull/107) Fixup type error with `@line/liff@2.4.0`.
+* [#109](https://github.com/epaew/react-liff/pull/109) Rename `loggedIn` in LiffContext to `isLoggedIn`.
 
 ## Others
 

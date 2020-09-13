@@ -4,7 +4,7 @@ import { Liff } from './types';
 type LiffStub = Liff & { [key in Exclude<string, keyof Liff>]: any };
 
 // login status
-let loggedIn = false;
+let loginState = false;
 
 const permanentLink: Liff['permanentLink'] = {
   createUrl: () => 'https://liff.line.me/liffId/path',
@@ -17,12 +17,12 @@ export const liffStub: LiffStub = {
   getVersion: () => '2.1.3',
   getLanguage: () => 'ja',
   isInClient: () => true,
-  isLoggedIn: () => loggedIn,
+  isLoggedIn: () => loginState,
   login: () => {
-    loggedIn = true;
+    loginState = true;
   },
   logout: () => {
-    loggedIn = false;
+    loginState = false;
   },
   getAccessToken: () => 'DummyAccessToken',
   getIDToken: () => 'DummyIDToken',

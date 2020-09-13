@@ -30,22 +30,22 @@ A react context provider for LIFF (LINE Front-end Framework)
 
         const App = () => {
           const [displayName, setDisplayName] = useState('');
-          const { error, liff, loggedIn, ready } = useLiff();
+          const { error, liff, isLoggedIn, ready } = useLiff();
 
           useEffect(() => {
-            if (!loggedIn) return;
+            if (!isLoggedIn) return;
 
             (async () => {
               const profile = await liff.getProfile();
               setDisplayName(profile.displayName);
             })();
-          }, [liff, loggedIn]);
+          }, [liff, isLoggedIn]);
 
           const showDisplayName = () => {
             if (error) return <p>Something is wrong.</p>;
             if (!ready) return <p>Loading...</p>;
 
-            if (!loggedIn) {
+            if (!isLoggedIn) {
               return <button className="App-button" onClick={liff.login}>Login</button>;
             }
             return (
@@ -116,7 +116,7 @@ A react context provider for LIFF (LINE Front-end Framework)
 ### LiffConsumer / useLiff return values
 * `error`: `LiffError | undefined`
   * Returns LiffError if `liff.init()` failed.
-* `loggedIn`: `boolean`
+* `isLoggedIn`: `boolean`
   * Returns whether the user is logged in.
 * `ready`: `boolean`
   * Returns `true` after `liff.init()` or stub setup has successfully completed.

@@ -11,7 +11,9 @@ interface LiffProviderProps<T> {
 }
 interface LiffContext<T> {
   error?: LiffError;
+  isLoggedIn: boolean;
   liff: T;
+  /* @deprecated "loggedIn" has been renamed to "isLoggedIn", and "loggedIn" will be removed at react-liff@1.0.0. */
   loggedIn: boolean;
   ready: boolean;
 }
@@ -53,7 +55,7 @@ const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffConte
     const [error, setError] = useState<LiffError>();
     const [originalLiff, setLiff] = useState<T>(stub as T);
     const [ready, setReady] = useState(false);
-    const [loggedIn, liff] = useLoginStateManager<T>(originalLiff);
+    const [isLoggedIn, liff] = useLoginStateManager<T>(originalLiff);
 
     useEffect(() => {
       (async () => {
@@ -64,7 +66,11 @@ const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffConte
       })();
     }, [liffId, stubEnabled]);
 
-    return <context.Provider value={{ error, liff, loggedIn, ready }}>{children}</context.Provider>;
+    return (
+      <context.Provider value={{ error, liff, loggedIn: isLoggedIn, isLoggedIn, ready }}>
+        {children}
+      </context.Provider>
+    );
   };
 
   /* @ts-ignore */
@@ -74,6 +80,7 @@ const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffConte
 
 export const createLiffContext: CreateLiffContext = <T extends LiffCore>() => {
   const context = createContext<LiffContext<T>>({
+    isLoggedIn: false,
     liff: stub as T,
     loggedIn: false,
     ready: false,

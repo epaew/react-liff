@@ -5,11 +5,11 @@ import './App.css';
 import { useLiff } from 'react-liff';
 
 function App() {
-  const { error, liff, loggedIn, ready } = useLiff();
+  const { error, liff, isLoggedIn, ready } = useLiff();
   const [displayName, setDisplayName] = useState('');
 
   useEffect(() => {
-    if (!loggedIn) return;
+    if (!isLoggedIn) return;
 
     (async () => {
       const profile = await liff.getProfile();
@@ -28,7 +28,7 @@ function App() {
     if (error) return <p>Something is wrong.</p>;
     if (!ready) return <p>Loading...</p>;
 
-    if (!loggedIn) {
+    if (!isLoggedIn) {
       return <button className="App-button" onClick={loginHandler}>Login</button>;
     }
     return (
