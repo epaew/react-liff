@@ -7,11 +7,11 @@ import { useLoginStateManager } from '#/use-login-state-manager';
 jest.mock('@line/liff');
 
 const TestComponent: React.FC<{ liff?: any }> = ({ liff }) => {
-  const [loggedIn, customLiff] = useLoginStateManager(liff);
+  const [isLoggedIn, customLiff] = useLoginStateManager(liff);
 
   return (
     <>
-      <p data-testid="logged-in">{loggedIn.toString()}</p>
+      <p data-testid="logged-in">{isLoggedIn.toString()}</p>
       <button data-testid="login" onClick={customLiff.login}>
         login
       </button>

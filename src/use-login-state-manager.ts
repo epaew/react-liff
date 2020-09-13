@@ -4,20 +4,20 @@ import { Loginable } from './types';
 
 export const useLoginStateManager = <T extends Loginable>(liff?: T): [boolean, T] => {
   const { isLoggedIn = () => false, login = () => {}, logout = () => {}, ...rest } = liff ?? {};
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loginState, setLoginState] = useState(false);
 
   useEffect(() => {
-    setLoggedIn(isLoggedIn());
+    setLoginState(isLoggedIn());
   }, [isLoggedIn]);
 
   const customLogin = () => {
     login();
-    setLoggedIn(isLoggedIn());
+    setLoginState(isLoggedIn());
   };
   const customLogout = () => {
     logout();
-    setLoggedIn(isLoggedIn());
+    setLoginState(isLoggedIn());
   };
 
-  return [loggedIn, { ...rest, isLoggedIn, login: customLogin, logout: customLogout } as T];
+  return [loginState, { ...rest, isLoggedIn, login: customLogin, logout: customLogout } as T];
 };
