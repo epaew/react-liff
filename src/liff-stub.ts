@@ -1,5 +1,7 @@
 import { Liff } from './types';
 
+type LiffStub = Liff & { [key in Exclude<string, keyof Liff>]: any };
+
 // login status
 let loggedIn = false;
 
@@ -8,7 +10,7 @@ const permanentLink: Liff['permanentLink'] = {
   setExtraQueryParam: () => {},
 };
 
-export const liffStub: Liff = {
+export const liffStub: LiffStub = {
   init: async () => {},
   getOS: () => 'web',
   getVersion: () => '2.1.3',
