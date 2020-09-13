@@ -4,6 +4,10 @@
 ## BREAKING CHANGES
 ## Others
 
+# 0.6.1
+## Bug Fixes
+* [#113](https://github.com/epaew/react-liff/pull/113) Fixup the version range of `@line/liff` dependency.
+
 # 0.6.0
 ## Bug Fixes
 * [#107](https://github.com/epaew/react-liff/pull/107) Fixup type error with `@line/liff@2.4.0`.
