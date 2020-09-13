@@ -99,7 +99,7 @@ A react context provider for LIFF (LINE Front-end Framework)
 3. Update `index.html` to load LIFF SDK
     * https://developers.line.biz/en/docs/liff/developing-liff-apps/#developing-a-liff-app
         ```diff
-        +    <script defer charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
+        +    <script defer charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         ```
 4. Import `react-liff` to your app and use it!
 
