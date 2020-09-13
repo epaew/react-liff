@@ -41,7 +41,7 @@ jobs:
       - build
     defaults:
       run:
-        working-directory: examples/basic
+        working-directory: examples/simple
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build
-          path: examples/basic/build
+          path: examples/simple/build
 
   deploy:
     name: Deploy to gh-pages
@@ -85,11 +85,11 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build
-          path: examples/basic/build
+          path: examples/simple/build
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           cname: www.epaew.net
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./examples/basic/build
+          publish_dir: ./examples/simple/build

@@ -1,6 +1,6 @@
 {
-  "name": "basic",
-  "version": "0.1.0",
+  "name": "simple-example-of-react-liff",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
