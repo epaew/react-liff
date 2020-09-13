@@ -1,10 +1,15 @@
 # Unreleased
 ## Features
-## Bugfixes
-* [#107](https://github.com/epaew/react-liff/pull/107) Fixup type error with `@line/liff@2.4.0`.
-* [#109](https://github.com/epaew/react-liff/pull/109) Rename `loggedIn` in LiffContext to `isLoggedIn`.
-
+## Bug Fixes
+## BREAKING CHANGES
 ## Others
+
+# 0.6.0
+## Bug Fixes
+* [#107](https://github.com/epaew/react-liff/pull/107) Fixup type error with `@line/liff@2.4.0`.
+
+## BREAKING CHANGES
+* [#109](https://github.com/epaew/react-liff/pull/109) Rename `loggedIn` in LiffContext to `isLoggedIn`.
 
 # 0.5.0
 ## Features
