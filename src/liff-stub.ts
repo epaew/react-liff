@@ -1,5 +1,6 @@
 import { Liff } from './types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type LiffStub = Liff & { [key in Exclude<string, keyof Liff>]: any };
 
 // login status

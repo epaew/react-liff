@@ -6,8 +6,7 @@ import { useLoginStateManager } from '#/use-login-state-manager';
 
 jest.mock('@line/liff');
 
-// eslint-disable-next-line react/prop-types
-const TestComponent: React.FC<any> = ({ liff }: { liff?: any }) => {
+const TestComponent: React.FC<{ liff?: any }> = ({ liff }) => {
   const [loggedIn, customLiff] = useLoginStateManager(liff);
 
   return (

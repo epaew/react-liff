@@ -2,7 +2,6 @@
 root: true
 env:
   es2017: true
-  node: true
 extends:
   - eslint:recommended
   - plugin:react/recommended
@@ -20,8 +19,18 @@ plugins:
 rules:
   '@typescript-eslint/explicit-module-boundary-types': off
   '@typescript-eslint/no-empty-function': off
-  '@typescript-eslint/no-explicit-any': off
   prettier/prettier: error
 settings:
   react:
     version: detect
+overrides:
+  - files:
+      - jest.config.js
+    env:
+      node: true
+  - files:
+      - '__mocks__/*'
+      - '__tests__/*'
+    rules:
+      '@typescript-eslint/no-explicit-any': off
+      react/prop-types: off
