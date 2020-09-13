@@ -27,7 +27,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-liff": "file:../..",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.3",
     "rimraf": "^3.0.2"
   }
 }
