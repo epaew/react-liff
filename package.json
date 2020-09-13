@@ -27,12 +27,11 @@
     "test:coverage": "jest --coverage"
   },
   "devDependencies": {
-    "@line/liff": "~2.3.0, ~2.4.0",
+    "@line/liff": ">=2.3.0 <2.5.0",
     "@testing-library/react": "^11.0.2",
     "@types/jest": "^26.0.13",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.49",
-    "@types/testing-library__react": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
     "eslint": "^7.8.1",
@@ -55,6 +54,6 @@
     "react": "^16.13.0"
   },
   "optionalDependencies": {
-    "@line/liff": "~2.3.0, ~2.4.0"
+    "@line/liff": ">=2.3.0 <2.5.0"
   }
 }
