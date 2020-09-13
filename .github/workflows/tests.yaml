@@ -9,8 +9,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  build:
-    name: Build react-liff
+  yarn-install:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,21 +21,22 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Fetch yarn cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-yarn-
+      - name: Fetch node_modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-node_modules-
 
       - run: yarn install --frozen-lockfile
-      - run: yarn run build
-      - name: Upload the result of build react-liff
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
 
   eslint:
+    needs: yarn-install
     name: ESLint
     runs-on: ubuntu-latest
     steps:
@@ -44,47 +44,67 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-
-      - name: Fetch yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Fetch yarn cache
-        uses: actions/cache@v1
+      - name: Fetch node_modules
+        uses: actions/cache@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-node_modules-
 
-      - run: yarn install --frozen-lockfile
       - run: yarn run eslint
 
-  jest:
-    name: Jest
+  test:
+    needs: yarn-install
+    name: Jest w/ @line/liff@${{ matrix.liff-sdk }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        liff-sdk:
+          - 2.3
+          - 2.4
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Fetch node_modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-node_modules-
+
+      - name: Reinstall specific version of @line/liff SDK
+        run: yarn add -D @line/liff@${{ matrix.liff-sdk }}
+      - run: yarn run test:coverage
+
+  build:
+    needs: test
+    name: Build react-liff
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-
-      - name: Fetch yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Fetch yarn cache
-        uses: actions/cache@v1
+      - name: Fetch node_modules
+        uses: actions/cache@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-node_modules-
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn run test:coverage
+      - run: yarn run build
+      - name: Upload the result of build react-liff
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
 
   build-example-app:
+    needs: build
     name: Build example app
     runs-on: ubuntu-latest
-    needs:
-      - build
     defaults:
       run:
         working-directory: examples/basic

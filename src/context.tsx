@@ -51,7 +51,7 @@ const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffConte
     stubEnabled = false,
   }) => {
     const [error, setError] = useState<LiffError>();
-    const [originalLiff, setLiff] = useState<T>(stub as any);
+    const [originalLiff, setLiff] = useState<T>(stub as T);
     const [ready, setReady] = useState(false);
     const [loggedIn, liff] = useLoginStateManager<T>(originalLiff);
 
@@ -59,7 +59,7 @@ const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffConte
       (async () => {
         const { error, liff, ready } = await initLiff({ liffId, stubEnabled });
         setError(error);
-        setLiff(liff as any);
+        setLiff(liff as T);
         setReady(ready);
       })();
     }, [liffId, stubEnabled]);
@@ -74,7 +74,7 @@ const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffConte
 
 export const createLiffContext: CreateLiffContext = <T extends LiffCore>() => {
   const context = createContext<LiffContext<T>>({
-    liff: stub as any,
+    liff: stub as T,
     loggedIn: false,
     ready: false,
   });
