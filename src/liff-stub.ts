@@ -44,6 +44,10 @@ export const liffStub: LiffStub = {
     endpointUrl: 'endpointUrl',
     viewType: 'full',
     availability: {
+      multipleLiffTransition: {
+        permission: false,
+        minVer: '10.8.0',
+      },
       shareTargetPicker: {
         permission: false,
         minVer: '10.8.0',
