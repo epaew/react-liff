@@ -1,6 +1,8 @@
 # Unreleased
 ## Features
 ## Bug Fixes
+* [#120](https://github.com/epaew/react-liff/pull/120) Get compatible w/ `@line/liff@2.4.1`.
+
 ## BREAKING CHANGES
 ## Others
 
