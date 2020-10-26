@@ -73,7 +73,8 @@ const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffConte
     );
   };
 
-  /* @ts-ignore */
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   LiffProvider.propTypes = LiffProviderPropTypes;
   return LiffProvider;
 };
@@ -94,5 +95,4 @@ export const createLiffContext: CreateLiffContext = <T extends LiffCore>() => {
   };
 };
 
-const { LiffConsumer, LiffProvider, useLiff } = createLiffContext<LiffCore>();
-export { LiffConsumer, LiffProvider, useLiff };
+export const { LiffConsumer, LiffProvider, useLiff } = createLiffContext<LiffCore>();
