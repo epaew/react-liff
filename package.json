@@ -1,12 +1,13 @@
 {
   "name": "react-liff",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "private": false,
   "description": "A react context provider for LIFF (LINE Front-end Framework)",
   "keywords": [
     "react",
     "react-component",
-    "liff"
+    "liff",
+    "line"
   ],
   "homepage": "https://github.com/epaew/react-liff",
   "repository": "git@github.com:epaew/react-liff",
