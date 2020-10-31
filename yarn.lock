@@ -513,10 +513,10 @@
     file-type "^15.0.0"
     form-data "^3.0.0"
 
-"@line/liff@>=2.3.0 <2.5.0":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.4.1.tgz#75458fa26a81827027afe76728523259837161b9"
-  integrity sha512-CZip9RSbvXV4KKRjbh+vjxUhCk0kP3BeTHuu3NdKfHO0wdfhnPJDv9ktwI7M/RTA1+stbMc8vyhDNWAQPCCuTA==
+"@line/liff@>=2.3.0 <2.6.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.5.0.tgz#99098a64a847084c3e43b14b7a1596364834c9b6"
+  integrity sha512-cWIhc31phH9pAGYh7nZTy5eNfm9R5DLFxNLOa3OoerySPS8GmWk0caGsXiHQhem9kjLonIpwkRrbHIkIp1sD1w==
   dependencies:
     "@line/bot-sdk" "^7.0.0"
     js-crypto-ec "^0.5.6"
