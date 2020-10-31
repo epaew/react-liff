@@ -3,6 +3,7 @@
 ## Bug Fixes
 ## BREAKING CHANGES
 ## Others
+* [#167](https://github.com/epaew/react-liff/pull/167) Started supporting `react@16.14` `react@17.0` and `@line/liff@2.5`.
 
 # 0.6.2
 ## Bug Fixes
