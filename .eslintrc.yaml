@@ -1,28 +1,11 @@
 ---
 root: true
-env:
-  es2017: true
 extends:
-  - eslint:recommended
-  - plugin:react/recommended
-  - plugin:react-hooks/recommended
-  - plugin:@typescript-eslint/recommended
-  - prettier
-  - prettier/@typescript-eslint
-parser: '@typescript-eslint/parser'
-parserOptions:
-  ecmaVersion: 2019
-  sourceType: module
+  - '@epaew/eslint-config/react-typescript'
 plugins:
   - '@typescript-eslint'
-  - prettier
 rules:
-  '@typescript-eslint/explicit-module-boundary-types': off
   '@typescript-eslint/no-empty-function': off
-  prettier/prettier: error
-settings:
-  react:
-    version: detect
 overrides:
   - files:
       - jest.config.js
@@ -31,6 +14,9 @@ overrides:
   - files:
       - '__mocks__/*'
       - '__tests__/*'
+    plugins:
+      - '@typescript-eslint'
+      - react
     rules:
       '@typescript-eslint/no-explicit-any': off
       react/prop-types: off
