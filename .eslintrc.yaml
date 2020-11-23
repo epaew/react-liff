@@ -8,6 +8,13 @@ rules:
   '@typescript-eslint/no-empty-function': off
 overrides:
   - files:
+      - '*.tsx'
+    plugins:
+      - react
+    rules:
+      react/jsx-uses-react: off
+      react/react-in-jsx-scope: off
+  - files:
       - jest.config.js
     env:
       node: true

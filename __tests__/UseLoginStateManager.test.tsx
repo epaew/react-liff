@@ -1,12 +1,12 @@
 import { liff as liffMock } from '@line/liff';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
+import { FC } from 'react';
 
 import { useLoginStateManager } from '#/use-login-state-manager';
 
 jest.mock('@line/liff');
 
-const TestComponent: React.FC<{ liff?: any }> = ({ liff }) => {
+const TestComponent: FC<{ liff?: any }> = ({ liff }) => {
   const [isLoggedIn, customLiff] = useLoginStateManager(liff);
 
   return (

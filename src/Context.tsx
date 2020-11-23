@@ -1,5 +1,5 @@
 import * as PropTypes from 'prop-types';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { Consumer, Context, createContext, FC, useContext, useEffect, useState } from 'react';
 
 import { liffStub as stub } from './liff-stub';
 import { LiffCore, LiffError } from './types';
@@ -18,8 +18,8 @@ interface LiffContext<T> {
   ready: boolean;
 }
 type CreateLiffContext = <T extends LiffCore>() => {
-  LiffConsumer: React.Consumer<LiffContext<T>>;
-  LiffProvider: React.FC<LiffProviderProps<T>>;
+  LiffConsumer: Consumer<LiffContext<T>>;
+  LiffProvider: FC<LiffProviderProps<T>>;
   useLiff: () => LiffContext<T>;
 };
 
@@ -46,12 +46,8 @@ const LiffProviderPropTypes = {
   stubEnabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };
 
-const createLiffProvider = <T extends LiffCore>(context: React.Context<LiffContext<T>>) => {
-  const LiffProvider: React.FC<LiffProviderProps<T>> = ({
-    children,
-    liffId,
-    stubEnabled = false,
-  }) => {
+const createLiffProvider = <T extends LiffCore>(context: Context<LiffContext<T>>) => {
+  const LiffProvider: FC<LiffProviderProps<T>> = ({ children, liffId, stubEnabled = false }) => {
     const [error, setError] = useState<LiffError>();
     const [originalLiff, setLiff] = useState<T>(stub as T);
     const [ready, setReady] = useState(false);

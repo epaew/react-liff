@@ -2,7 +2,7 @@ module.exports = {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts{,x}'],
   globals: {
     'ts-jest': {
-      tsConfig: '__tests__/tsconfig.json',
+      tsconfig: '__tests__/tsconfig.json',
     },
   },
   moduleNameMapper: {
