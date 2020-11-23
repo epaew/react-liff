@@ -6,4 +6,4 @@ declare global {
   }
 }
 
-export * from './context';
+export * from './Context';

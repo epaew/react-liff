@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 import { liffStub as stub } from './liff-stub';
 import { LiffCore, LiffError } from './types';
@@ -91,7 +91,7 @@ export const createLiffContext: CreateLiffContext = <T extends LiffCore>() => {
   return {
     LiffConsumer: context.Consumer,
     LiffProvider: createLiffProvider(context),
-    useLiff: () => React.useContext(context),
+    useLiff: () => useContext(context),
   };
 };
 
