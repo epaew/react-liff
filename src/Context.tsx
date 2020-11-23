@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { createContext, useEffect, useState } from 'react';
 
 import { liffStub as stub } from './liff-stub';
 import { LiffCore, LiffError } from './types';
