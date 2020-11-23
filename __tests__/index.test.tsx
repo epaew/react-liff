@@ -1,13 +1,13 @@
 import { liff } from '@line/liff';
 import { render, waitFor } from '@testing-library/react';
-import React from 'react';
+import { FC } from 'react';
 
 import { LiffProvider, useLiff } from '#/index';
 import { Liff } from '#/types';
 
 jest.mock('@line/liff');
 
-const TestComponent: React.FC = () => {
+const TestComponent: FC = () => {
   const { error, liff, ready } = useLiff();
 
   return (
