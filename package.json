@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "prop-types": "*",
-    "react": ">=16.14.0, <17.1.0"
+    "react": ">=16.14.0 <17.1.0"
   },
   "optionalDependencies": {
     "@line/liff": ">=2.3.0 <2.6.0"
