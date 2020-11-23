@@ -1,0 +1,37 @@
+name: git diff
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  list-diff:
+    name: Fetch changed file names
+    if: "!contains(github.event.pull_request.labels.*.name, 'dependencies')"
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.changed-files.outputs.diff }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Fetch base branch
+        run: git fetch --prune --depth=1 origin ${{ github.base_ref }}
+
+      - name: Fetch changed file names
+        id: changed-files
+        run: |
+          echo "::set-output name=diff::" \
+            "$(git diff --diff-filter=d --name-only origin/${{ github.base_ref }} | tr '\n' ' ')"
+
+  check-files-included:
+    name: Check the CHANGELOG.md is changed
+    needs: list-diff
+    if: contains(needs.list-diff.outputs.result, 'src')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Fetch base branch
+        run: git fetch --prune --depth=1 origin ${{ github.base_ref }}
+
+      - name: Check the CHANGELOG.md is updated.
+        run: git diff --diff-filter=d --name-only origin/${{ github.base_ref }} | grep CHANGELOG.md
