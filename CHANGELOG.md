@@ -5,6 +5,7 @@
 ## Others
 * [#169](https://github.com/epaew/react-liff/pull/169) Update .eslintrc to use `@epaew/eslint-config` and fix ESLint errors.
 * [#186](https://github.com/epaew/react-liff/pull/186) Refactoring: Introduce the new jsx transform.
+* [#191](https://github.com/epaew/react-liff/pull/191) Started supporting `@line/liff@2.6`.
 
 # 0.7.0
 ## Others
