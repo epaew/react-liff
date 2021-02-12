@@ -6,7 +6,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 0' # 0:00 UTC on every sunday
 
 jobs:
   yarn-install:
@@ -60,13 +60,15 @@ jobs:
     strategy:
       matrix:
         react:
-          - 16.14
-          - 17.0
+          - 16
+          - 17
         liff-sdk:
           - 2.3
           - 2.4
           - 2.5
           - 2.6
+          - 2.7
+          - latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -80,7 +82,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node_modules-
 
       - name: Reinstall specific version of react.js
-        run: yarn add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
+        run: yarn add -D react@${{ matrix.react }} react-dom@${{ matrix.react }} @types/react@${{ matrix.react }}
       - name: Reinstall specific version of @line/liff SDK
         run: yarn add -D @line/liff@${{ matrix.liff-sdk }}
       - run: yarn run test:coverage
