@@ -561,13 +561,13 @@
     form-data "^3.0.0"
 
 "@line/liff@>=2.3.0 <2.9.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.8.0.tgz#112c07179bd9114857ee021701377cf15b306ffa"
-  integrity sha512-T9tUTnPA+cKZEOlCtyR+Tj27F/LJI5uCl/RBPAx3WWVYDBpe6PqoaM94Lven7MOjC1l6kMZNwWUL8wXzA60TXw==
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.8.1.tgz#303e28476f3e1a32de710e7d464edcf131d1099b"
+  integrity sha512-04dw+5UwV3CDvumAzwysX89ufCYzOL/JUJ36thRlS0wWuwSQsX292mv10w1f5bqOsw6SvAVeiZ4x/lwvZmmNAQ==
   dependencies:
     "@line/bot-sdk" "^7.0.0"
-    js-crypto-ec "^0.5.6"
-    promise-polyfill "^8.1.0"
+    js-crypto-ec "^0.5.11"
+    promise-polyfill "^8.1.3"
     tiny-sha256 "^1.0.2"
     whatwg-fetch "^3.0.0"
 
@@ -3304,7 +3304,7 @@ js-crypto-aes@^0.6.1:
     "@babel/runtime" "~7.5.0"
     js-crypto-env "^0.2.4"
 
-js-crypto-ec@^0.5.6:
+js-crypto-ec@^0.5.11:
   version "0.5.11"
   resolved "https://registry.yarnpkg.com/js-crypto-ec/-/js-crypto-ec-0.5.11.tgz#666dca85beb750084820c380561c1cba0e10a35f"
   integrity sha512-fnWQc2KOX+iGpFq7+WUb41SjlKcB7NcAJVXaV/WXgigPqCsT7qzcT3taW32KFEHBF8pkD3LF9CsWmU2GGOogKw==
@@ -4257,7 +4257,7 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-promise-polyfill@^8.1.0:
+promise-polyfill@^8.1.3:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.2.0.tgz#367394726da7561457aba2133c9ceefbd6267da0"
   integrity sha512-k/TC0mIcPVF6yHhUvwAp7cvL6I2fFV7TzF1DuGPI8mBh4QQazf36xCKEHKTZKRysEoTQoQdKyP25J8MPJp7j5g==
