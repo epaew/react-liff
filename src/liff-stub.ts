@@ -52,6 +52,10 @@ export const liffStub: LiffStub = {
         permission: false,
         minVer: '10.8.0',
       },
+      subwindowOpen: {
+        permission: false,
+        minVer: '10.8.0',
+      },
     },
   }),
   openWindow: ({ url, external }) => {
@@ -79,6 +83,15 @@ export const liffStub: LiffStub = {
   sendMessages: async () => {},
   userPicker: async () => null,
   shareTargetPicker: async () => {},
+  subWindow: {
+    on: (): void => {},
+    off: (): void => {},
+    open: async (): Promise<void> => {},
+    cancel: async () => ({ status: '200', result: 'OK' }),
+    submit: async () => ({ status: '200', result: 'OK' }),
+    close: async (): Promise<void> => {},
+    getAppData: async () => ({}),
+  },
   permanentLink,
   ready: new Promise(() => {}),
   id: 'liffId',
