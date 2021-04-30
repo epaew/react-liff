@@ -558,9 +558,9 @@
     form-data "^3.0.0"
 
 "@line/liff@>=2.3.0 <2.10.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.9.0.tgz#fb13097a776a9972931ef58eb74deb4acbeda9c5"
-  integrity sha512-Sl3mFc++cz9/NT8rziSScbskxwWGNGWReTkjEl15YJRxvIKoSOrqM1la6CxvzGqhl+23u1EDis/z0Oz/6ueCsA==
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.9.1.tgz#6baeaa8b526f1905c2b0ac4793ed788e901d7dd3"
+  integrity sha512-TZeIHOlL+LLRt9PcfUxvqdBw4NfHc6fqwmnkI2jkBIf0IJExoZ9BOslIK6PnLcWLEPfHtrNSRirPxBwicEPmsw==
   dependencies:
     "@line/bot-sdk" "^7.0.0"
     js-crypto-ec "^0.5.11"
