@@ -31,7 +31,7 @@
   "devDependencies": {
     "@epaew/eslint-config": "git://github.com/epaew/eslint-config.git#master",
     "@line/liff": ">=2.3.0 <2.10.0",
-    "@testing-library/react": "^11.0.2",
+    "@testing-library/react": "^12.0.0",
     "@types/jest": "^26.0.13",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^17.0.0",
