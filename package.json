@@ -52,5 +52,8 @@
   },
   "optionalDependencies": {
     "@line/liff": ">=2.9.0 <2.13.0"
+  },
+  "resolutions": {
+    "eslint-plugin-import": "2.22.1"
   }
 }
