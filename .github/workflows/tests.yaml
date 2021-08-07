@@ -57,8 +57,12 @@ jobs:
     needs: yarn-install
     name: Jest w/ react@${{ matrix.react }} @line/liff@${{ matrix.liff-sdk }}
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.continue-on-error }}
     strategy:
+      fail-fast: false
       matrix:
+        continue-on-error:
+          - false
         react:
           - 16
           - 17
@@ -70,7 +74,13 @@ jobs:
           - 2.7
           - 2.8
           - 2.9
-          - latest
+        include:
+          - react: 16
+            liff-sdk: latest
+            continue-on-error: true
+          - react: 17
+            liff-sdk: latest
+            continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
