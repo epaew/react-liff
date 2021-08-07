@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import { Consumer, Context, createContext, FC, useContext, useEffect, useState } from 'react';
 
 import { liffStub as stub } from './liff-stub';
-import { LiffCore, LiffError } from './types';
+import { LiffCore, LiffError, Loginable } from './types';
 import { useLoginStateManager } from './use-login-state-manager';
 
 interface LiffProviderProps<T> {
@@ -17,13 +17,17 @@ interface LiffContext<T> {
   loggedIn: boolean;
   ready: boolean;
 }
-type CreateLiffContext = <T extends LiffCore>() => {
+type CreateLiffContext = <T extends LoginableLiffCore>() => {
   LiffConsumer: Consumer<LiffContext<T>>;
   LiffProvider: FC<LiffProviderProps<T>>;
   useLiff: () => LiffContext<T>;
 };
+type LoginableLiffCore = LiffCore & Loginable;
 
-const initLiff = async <T extends LiffCore>({ liffId, stubEnabled }: LiffProviderProps<T>) => {
+const initLiff = async <T extends LoginableLiffCore>({
+  liffId,
+  stubEnabled,
+}: LiffProviderProps<T>) => {
   if (stubEnabled) {
     if (typeof stubEnabled === 'object') {
       return { liff: { ...stub, ...stubEnabled }, ready: true };
@@ -46,7 +50,7 @@ const LiffProviderPropTypes = {
   stubEnabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };
 
-const createLiffProvider = <T extends LiffCore>(context: Context<LiffContext<T>>) => {
+const createLiffProvider = <T extends LoginableLiffCore>(context: Context<LiffContext<T>>) => {
   const LiffProvider: FC<LiffProviderProps<T>> = ({ children, liffId, stubEnabled = false }) => {
     const [error, setError] = useState<LiffError>();
     const [originalLiff, setLiff] = useState<T>(stub as T);
@@ -75,7 +79,7 @@ const createLiffProvider = <T extends LiffCore>(context: Context<LiffContext<T>>
   return LiffProvider;
 };
 
-export const createLiffContext: CreateLiffContext = <T extends LiffCore>() => {
+export const createLiffContext: CreateLiffContext = <T extends LoginableLiffCore>() => {
   const context = createContext<LiffContext<T>>({
     isLoggedIn: false,
     liff: stub as T,
@@ -91,4 +95,4 @@ export const createLiffContext: CreateLiffContext = <T extends LiffCore>() => {
   };
 };
 
-export const { LiffConsumer, LiffProvider, useLiff } = createLiffContext<LiffCore>();
+export const { LiffConsumer, LiffProvider, useLiff } = createLiffContext<LoginableLiffCore>();

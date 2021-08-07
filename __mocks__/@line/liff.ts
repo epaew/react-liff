@@ -1,8 +1,9 @@
-import { LiffCore } from '@line/liff/dist/lib/liff';
+import liff from '@line/liff/dist/lib/liff';
 
 let loginState = false;
 
-type IdWritableLiff = Omit<LiffCore, 'id'> & { id: string | null };
+type Liff = typeof liff;
+type IdWritableLiff = Omit<Liff, 'id'> & { id: string | null };
 
 const liffMock: Partial<IdWritableLiff> = {
   isLoggedIn: jest.fn().mockImplementation(() => loginState),

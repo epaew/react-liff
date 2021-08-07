@@ -44,11 +44,11 @@ export const liffStub: LiffStub = {
     endpointUrl: 'endpointUrl',
     viewType: 'full',
     availability: {
-      multipleLiffTransition: {
+      shareTargetPicker: {
         permission: false,
         minVer: '10.8.0',
       },
-      shareTargetPicker: {
+      multipleLiffTransition: {
         permission: false,
         minVer: '10.8.0',
       },
@@ -56,7 +56,28 @@ export const liffStub: LiffStub = {
         permission: false,
         minVer: '10.8.0',
       },
+      scanCode: {
+        permission: false,
+        minVer: '10.8.0',
+      },
+      getAdvertisingId: {
+        permission: false,
+        minVer: '10.8.0',
+      },
+      addToHomeScreen: {
+        permission: false,
+        minVer: '10.8.0',
+      },
+      bluetoothLeFunction: {
+        permission: false,
+        minVer: '10.8.0',
+      },
+      skipChannelVerificationScreen: {
+        permission: false,
+        minVer: '10.8.0',
+      },
     },
+    scope: [],
   }),
   openWindow: ({ url, external }) => {
     external ? window.open(url) : (window.location.href = url);
@@ -81,7 +102,6 @@ export const liffStub: LiffStub = {
     userId: 'userId',
   }),
   sendMessages: async () => {},
-  userPicker: async () => null,
   shareTargetPicker: async () => {},
   subWindow: {
     on: (): void => {},
@@ -92,6 +112,7 @@ export const liffStub: LiffStub = {
     close: async (): Promise<void> => {},
     getAppData: async () => ({}),
   },
+  isSubWindow: () => false,
   permanentLink,
   ready: new Promise(() => {}),
   id: 'liffId',
