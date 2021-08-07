@@ -13,8 +13,6 @@ interface LiffContext<T> {
   error?: LiffError;
   isLoggedIn: boolean;
   liff: T;
-  /* @deprecated "loggedIn" has been renamed to "isLoggedIn", and "loggedIn" will be removed at react-liff@1.0.0. */
-  loggedIn: boolean;
   ready: boolean;
 }
 type CreateLiffContext = <T extends LoginableLiffCore>() => {
@@ -67,9 +65,7 @@ const createLiffProvider = <T extends LoginableLiffCore>(context: Context<LiffCo
     }, [liffId, stubEnabled]);
 
     return (
-      <context.Provider value={{ error, liff, loggedIn: isLoggedIn, isLoggedIn, ready }}>
-        {children}
-      </context.Provider>
+      <context.Provider value={{ error, liff, isLoggedIn, ready }}>{children}</context.Provider>
     );
   };
 
@@ -83,7 +79,6 @@ export const createLiffContext: CreateLiffContext = <T extends LoginableLiffCore
   const context = createContext<LiffContext<T>>({
     isLoggedIn: false,
     liff: stub as T,
-    loggedIn: false,
     ready: false,
   });
   context.displayName = 'LiffContext';
