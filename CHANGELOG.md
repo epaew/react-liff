@@ -3,6 +3,9 @@
 ## Bug Fixes
 ## BREAKING CHANGES
 ## Others
+
+# 0.9.0
+## Others
 * [#278](https://github.com/epaew/react-liff/pull/278) Started supporting `@line/liff@2.10`.
 
 # 0.8.0
