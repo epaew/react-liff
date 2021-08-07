@@ -571,13 +571,13 @@
     chalk "^4.0.0"
 
 "@line/bot-sdk@^7.0.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@line/bot-sdk/-/bot-sdk-7.2.0.tgz#8962c3f1e4a37fa72184233a9297c8bd7b9768cf"
-  integrity sha512-TW9BB1Om1lFWWo3sw9A4kx+9ZTHBjfqIj6NmUY9md+DDR5Z4X98wEeM3l74mkrbZ7naK6AtRgUw5UIaKQgi3nA==
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@line/bot-sdk/-/bot-sdk-7.3.0.tgz#6cf192612f127f82606a6401268878fb84b5333a"
+  integrity sha512-MItRU6Yl7ES8ai/fJ7Y0neKMQXI1QloRFq8i4YtV3t1+1kaxUY9j3dcPDXDRLKgYRNCIXamQwaTfI1QA3bxZHQ==
   dependencies:
     "@types/body-parser" "^1.19.0"
     "@types/node" "^14.10.0"
-    axios "^0.20.0"
+    axios "^0.21.1"
     body-parser "^1.19.0"
     file-type "^15.0.0"
     form-data "^3.0.0"
@@ -1112,10 +1112,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
-axios@^0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.20.0.tgz#057ba30f04884694993a8cd07fa394cff11c50bd"
-  integrity sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
 
