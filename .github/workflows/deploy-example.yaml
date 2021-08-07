@@ -16,16 +16,7 @@ jobs:
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 14.x
-
-      - name: Fetch yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Fetch yarn cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+          cache: yarn
 
       - run: yarn install --frozen-lockfile
       - run: yarn run build
@@ -48,21 +39,12 @@ jobs:
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 14.x
+          cache: yarn
       - name: Download the result of build react-liff
         uses: actions/download-artifact@v2
         with:
           name: dist
           path: dist
-
-      - name: Fetch yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Fetch yarn cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
 
       - run: yarn install
       - run: yarn run build

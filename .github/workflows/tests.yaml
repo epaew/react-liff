@@ -9,34 +9,7 @@ on:
     - cron: '0 0 * * 0' # 0:00 UTC on every sunday
 
 jobs:
-  yarn-install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.4.0
-        with:
-          node-version: 14.x
-
-      - name: Fetch yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Fetch yarn cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
-      - name: Fetch node_modules
-        uses: actions/cache@v2.1.6
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-node_modules-
-
-      - run: yarn install --frozen-lockfile
-
   eslint:
-    needs: yarn-install
     name: ESLint
     runs-on: ubuntu-latest
     steps:
@@ -44,17 +17,11 @@ jobs:
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 14.x
-      - name: Fetch node_modules
-        uses: actions/cache@v2.1.6
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-node_modules-
-
+          cache: yarn
+      - run: yarn install --frozen-lockfile
       - run: yarn run eslint
 
   test:
-    needs: yarn-install
     name: Jest w/ react@${{ matrix.react }} @line/liff@${{ matrix.liff-sdk }}
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.continue-on-error }}
@@ -83,18 +50,15 @@ jobs:
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 14.x
-      - name: Fetch node_modules
-        uses: actions/cache@v2.1.6
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-node_modules-
-
+          cache: yarn
+      - run: yarn install --frozen-lockfile
       - name: Reinstall specific version of react.js
         run: yarn add -D react@${{ matrix.react }} react-dom@${{ matrix.react }} @types/react@${{ matrix.react }}
       - name: Reinstall specific version of @line/liff SDK
         run: yarn add -D @line/liff@${{ matrix.liff-sdk }}
       - run: yarn run test:coverage
+      - name: Reset local changes
+        run: git checkout . && yarn
 
   build:
     needs: test
@@ -105,12 +69,8 @@ jobs:
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 14.x
-      - name: Fetch node_modules
-        uses: actions/cache@v2.1.6
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-node_modules-
+          cache: yarn
+      - run: yarn install --frozen-lockfile
 
       - run: yarn run build
       - name: Upload the result of build react-liff
@@ -131,21 +91,12 @@ jobs:
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 14.x
+          cache: yarn
       - name: Download the result of build react-liff
         uses: actions/download-artifact@v2
         with:
           name: dist
           path: dist
-
-      - name: Fetch yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Fetch yarn cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
 
       - run: yarn install
       - run: yarn run build
