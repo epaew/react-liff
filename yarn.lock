@@ -589,10 +589,10 @@
     file-type "^15.0.0"
     form-data "^3.0.0"
 
-"@line/liff@>=2.9.0 <2.13.0":
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.12.0.tgz#b3b6b14a26349a30c4ba90f4e5cdf3349793a6a8"
-  integrity sha512-efTouvEfQ9f/xF+wBrMbBq1eikHDTHtMYG+28rcaJQv7m/bqOs98GnhXld59RGUHYsCzI0EYNYEyTVlTl1KRBg==
+"@line/liff@>=2.9.0 <2.14.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.13.0.tgz#69c25d4dc001886600e2835e84f97e187b9d9c83"
+  integrity sha512-3uSEzO+Gw0tsUeEO+bCfPSZjWP9uHLSizOAFUkQtDmaXXPOGgkjuGxI6tWHRg7Ed8ioYJ1aLa+ja3nmTaYWiwA==
   dependencies:
     "@line/bot-sdk" "^7.0.0"
     js-crypto-ec "^0.5.11"
