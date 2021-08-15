@@ -79,6 +79,10 @@ export const liffStub: LiffStub = {
     },
     scope: [],
   }),
+  permission: {
+    query: async () => ({ state: 'granted' }),
+    requestAll: async () => {},
+  },
   openWindow: ({ url, external }) => {
     external ? window.open(url) : (window.location.href = url);
   },

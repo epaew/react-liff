@@ -3,6 +3,7 @@
 ## Bug Fixes
 ## BREAKING CHANGES
 ## Others
+* [#297](https://github.com/epaew/react-liff/pull/297) Started supporting `@line/liff@2.13`.
 
 # 1.0.0
 ## BREAKING CHANGES
@@ -11,10 +12,10 @@
   * Dropped supporting `@line/liff` version 2.8.x or earlier.
     * Version 2.9.x and 2.10.x will continue to be supported.
 * [#281](https://github.com/epaew/react-liff/pull/281)
-  * Remove deprecated `loggedIn` function in LiffContext.
+  * Removed deprecated `loggedIn` function in LiffContext.
 ## Others
 * CI enhancements.
-* Update some development dependencies.
+* Updated some development dependencies.
 
 # 0.9.0
 ## Others
