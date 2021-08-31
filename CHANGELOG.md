@@ -2,6 +2,10 @@
 ## Features
 ## Bug Fixes
 ## BREAKING CHANGES
+* [#306](https://github.com/epaew/react-liff/pull/306)
+  * For TypeScript user only: LiffContext returned the `error` as `LiffError | undefined`,
+    but now it returns as `unknown` (including `undefined`).
+
 ## Others
 
 # 1.1.0

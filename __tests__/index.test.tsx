@@ -13,7 +13,7 @@ const TestComponent: FC = () => {
   return (
     <>
       <p data-testid="ready">{ready.toString()}</p>
-      <p data-testid="error.message">{error?.message ?? ''}</p>
+      <p data-testid="error.message">{error instanceof Error && error.message}</p>
       <p data-testid="liff.id">{liff?.id}</p>
     </>
   );

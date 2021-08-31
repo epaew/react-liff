@@ -114,8 +114,8 @@ A react context provider for LIFF (LINE Front-end Framework)
   * `Object`: Provider uses the stubs you specified here.
 
 ### LiffConsumer / useLiff return values
-* `error`: `LiffError | undefined`
-  * Returns LiffError if `liff.init()` failed.
+* `error`: `unknown` (is `LiffError | undefined` in many cases)
+  * Returns an error if `liff.init()` was failed.
 * `isLoggedIn`: `boolean`
   * Returns whether the user is logged in.
 * `ready`: `boolean`
