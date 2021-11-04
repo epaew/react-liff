@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@epaew/eslint-config": "git://github.com/epaew/eslint-config.git#master",
-    "@line/liff": ">=2.9.0 <2.16.0",
+    "@line/liff": ">=2.9.0 <2.17.0",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^27.0.1",
     "@types/prop-types": "^15.7.3",
@@ -51,7 +51,7 @@
     "react": ">=16.14.0 <17.1.0"
   },
   "optionalDependencies": {
-    "@line/liff": ">=2.9.0 <2.16.0"
+    "@line/liff": ">=2.9.0 <2.17.0"
   },
   "resolutions": {
     "eslint-plugin-import": "2.22.1"
