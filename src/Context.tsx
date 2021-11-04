@@ -34,7 +34,7 @@ const initLiff = async <T extends LoginableLiffCore>({
   }
 
   try {
-    const liff = window.liff ?? (await import('@line/liff')).liff;
+    const liff = window.liff ?? (await import('@line/liff')).default;
     await liff.init({ liffId });
     return { liff, ready: true };
   } catch (error: unknown) {
