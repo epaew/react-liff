@@ -19,4 +19,5 @@ const liffMock: Partial<IdWritableLiff> = {
   }),
 };
 
-export { liffMock as liff };
+// eslint-disable-next-line import/no-default-export
+export default liffMock;
