@@ -2,11 +2,10 @@ import * as PropTypes from 'prop-types';
 import { Consumer, Context, createContext, FC, useContext, useEffect, useState } from 'react';
 
 import { liffStub as stub } from './liff-stub';
-import { Liff, Loginable } from './types';
+import { Liff, LiffConfig, Loginable } from './types';
 import { useLoginStateManager } from './use-login-state-manager';
 
-interface LiffProviderProps<T> {
-  liffId: string;
+interface LiffProviderProps<T> extends LiffConfig {
   stubEnabled?: boolean | Partial<T>;
 }
 interface LiffContext<T> {
@@ -21,7 +20,10 @@ type CreateLiffContext = <T extends Loginable>() => {
   useLiff: () => LiffContext<T>;
 };
 
-const initLiff = async <T extends Loginable>({ liffId, stubEnabled }: LiffProviderProps<T>) => {
+const initLiff = async <T extends Loginable>({
+  stubEnabled,
+  ...liffConfig
+}: LiffProviderProps<T>) => {
   if (stubEnabled) {
     if (typeof stubEnabled === 'object') {
       return { liff: { ...stub, ...stubEnabled }, ready: true };
@@ -31,7 +33,7 @@ const initLiff = async <T extends Loginable>({ liffId, stubEnabled }: LiffProvid
 
   try {
     const liff = window.liff ?? (await import('@line/liff')).default;
-    await liff.init({ liffId });
+    await liff.init(liffConfig);
     return { liff, ready: true };
   } catch (error: unknown) {
     return { error, ready: false };
@@ -42,6 +44,7 @@ const LiffProviderPropTypes = {
   children: PropTypes.element.isRequired,
   liffId: PropTypes.string.isRequired,
   stubEnabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  withLoginOnExternalBrowser: PropTypes.bool,
 };
 
 const createLiffProvider = <T extends Loginable>(context: Context<LiffContext<T>>) => {
