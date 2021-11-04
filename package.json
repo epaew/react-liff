@@ -1,6 +1,6 @@
 {
   "name": "react-liff",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "A react context provider for LIFF (LINE Front-end Framework)",
   "keywords": [
