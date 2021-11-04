@@ -1,4 +1,4 @@
-import { liff } from '@line/liff';
+import { default as liff } from '@line/liff';
 import { render, waitFor } from '@testing-library/react';
 import { FC } from 'react';
 

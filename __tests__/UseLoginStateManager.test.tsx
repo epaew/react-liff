@@ -1,4 +1,4 @@
-import { liff as liffMock } from '@line/liff';
+import { default as liffMock } from '@line/liff';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { FC } from 'react';
 
