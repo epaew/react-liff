@@ -1,7 +1,6 @@
-import type { LiffModules } from '@line/liff/dist/lib/core';
-import type { LiffCore } from '@line/liff/dist/lib/liff';
+import { default as liff } from '@line/liff';
 
-type Liff = LiffCore & LiffModules;
+type Liff = typeof liff;
 type Loginable = Pick<Liff, 'isLoggedIn' | 'login' | 'logout'>;
 
-export { Liff, LiffCore, Loginable };
+export { Liff, Loginable };
