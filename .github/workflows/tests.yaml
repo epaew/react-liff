@@ -39,6 +39,7 @@ jobs:
           - '2.11'
           - '2.12'
           - '2.13'
+          - '2.14'
         include:
           - react: 16
             liff-sdk: latest
