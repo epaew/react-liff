@@ -1,11 +1,13 @@
 # Unreleased
 ## Features
 ## Bug Fixes
-* [#334](https://github.com/epaew/react-liff/pull/334)
-  * Import liff object from default export of '@line/liff'. Thanks for @malparty :)
-
 ## BREAKING CHANGES
 ## Others
+
+# 1.2.1
+## Bug Fixes
+* [#334](https://github.com/epaew/react-liff/pull/334)
+  * Import liff object from default export of '@line/liff'. Thanks for @malparty :)
 
 # 1.2.0
 ## BREAKING CHANGES
