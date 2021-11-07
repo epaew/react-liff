@@ -60,6 +60,11 @@ export const liffStub: LiffStub = {
         permission: false,
         minVer: '10.8.0',
       },
+      scanCodeV2: {
+        permission: false,
+        minVer: '10.8.0',
+        minOsVer: '14.3.0',
+      },
       getAdvertisingId: {
         permission: false,
         minVer: '10.8.0',
@@ -129,6 +134,7 @@ export const liffStub: LiffStub = {
   // Extras
   addToHomeScreen: async () => 0,
   scanCode: async () => ({ value: 'DummyCode' }),
+  scanCodeV2: async () => ({ value: 'DummyCode' }),
   getAdvertisingId: async () => null,
   initPlugins: async () => [],
 };

@@ -112,6 +112,8 @@ A react context provider for LIFF (LINE Front-end Framework)
   * `false` or `undefined`: Provider uses LIFF SDK (for Production).
   * `true`: Provider uses stubs defined in library.
   * `Object`: Provider uses the stubs you specified here.
+* `withLoginOnExternalBrowser`: `boolean`, optional
+  * See the API reference of `liff.init()`. https://developers.line.biz/en/reference/liff/#initialize-liff-app-arguments
 
 ### LiffConsumer / useLiff return values
 * `error`: `unknown` (is `LiffError | undefined` in many cases)

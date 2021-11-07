@@ -2,11 +2,10 @@ import * as PropTypes from 'prop-types';
 import { Consumer, Context, createContext, FC, useContext, useEffect, useState } from 'react';
 
 import { liffStub as stub } from './liff-stub';
-import { LiffCore, Loginable } from './types';
+import { Liff, LiffConfig, Loginable } from './types';
 import { useLoginStateManager } from './use-login-state-manager';
 
-interface LiffProviderProps<T> {
-  liffId: string;
+interface LiffProviderProps<T> extends LiffConfig {
   stubEnabled?: boolean | Partial<T>;
 }
 interface LiffContext<T> {
@@ -15,16 +14,15 @@ interface LiffContext<T> {
   liff: T;
   ready: boolean;
 }
-type CreateLiffContext = <T extends LoginableLiffCore>() => {
+type CreateLiffContext = <T extends Loginable>() => {
   LiffConsumer: Consumer<LiffContext<T>>;
   LiffProvider: FC<LiffProviderProps<T>>;
   useLiff: () => LiffContext<T>;
 };
-type LoginableLiffCore = LiffCore & Loginable;
 
-const initLiff = async <T extends LoginableLiffCore>({
-  liffId,
+const initLiff = async <T extends Loginable>({
   stubEnabled,
+  ...liffConfig
 }: LiffProviderProps<T>) => {
   if (stubEnabled) {
     if (typeof stubEnabled === 'object') {
@@ -35,7 +33,7 @@ const initLiff = async <T extends LoginableLiffCore>({
 
   try {
     const liff = window.liff ?? (await import('@line/liff')).default;
-    await liff.init({ liffId });
+    await liff.init(liffConfig);
     return { liff, ready: true };
   } catch (error: unknown) {
     return { error, ready: false };
@@ -46,9 +44,10 @@ const LiffProviderPropTypes = {
   children: PropTypes.element.isRequired,
   liffId: PropTypes.string.isRequired,
   stubEnabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  withLoginOnExternalBrowser: PropTypes.bool,
 };
 
-const createLiffProvider = <T extends LoginableLiffCore>(context: Context<LiffContext<T>>) => {
+const createLiffProvider = <T extends Loginable>(context: Context<LiffContext<T>>) => {
   const LiffProvider: FC<LiffProviderProps<T>> = ({ children, liffId, stubEnabled = false }) => {
     const [error, setError] = useState<unknown>();
     const [originalLiff, setLiff] = useState<T>(stub as T);
@@ -75,7 +74,7 @@ const createLiffProvider = <T extends LoginableLiffCore>(context: Context<LiffCo
   return LiffProvider;
 };
 
-export const createLiffContext: CreateLiffContext = <T extends LoginableLiffCore>() => {
+export const createLiffContext: CreateLiffContext = <T extends Loginable>() => {
   const context = createContext<LiffContext<T>>({
     isLoggedIn: false,
     liff: stub as T,
@@ -90,4 +89,4 @@ export const createLiffContext: CreateLiffContext = <T extends LoginableLiffCore
   };
 };
 
-export const { LiffConsumer, LiffProvider, useLiff } = createLiffContext<LoginableLiffCore>();
+export const { LiffConsumer, LiffProvider, useLiff } = createLiffContext<Liff>();
