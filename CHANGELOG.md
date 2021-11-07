@@ -1,12 +1,15 @@
 # Unreleased
 ## Features
-* [#336](https://github.com/epaew/react-liff/pull/336)
-  * Started supporting `@line/liff` version from 2.14.x to 2.16.x.
-
 ## Bug Fixes
 ## BREAKING CHANGES
 ## Others
-* [#338](https://github.com/epaew/react-liff/pull/338)
+
+# 1.3.0
+## Features
+* [#336](https://github.com/epaew/react-liff/pull/336)
+  * Started supporting `@line/liff` version from 2.14.x to 2.16.x.
+## Others
+* [#338](https://github.com/epaew/react-liff/pull/338) [#339](https://github.com/epaew/react-liff/pull/339)
   * Upgrade outdated devDependencies
 
 # 1.2.1
