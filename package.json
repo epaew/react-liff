@@ -31,20 +31,20 @@
   "devDependencies": {
     "@epaew/eslint-config": "git://github.com/epaew/eslint-config.git#master",
     "@line/liff": ">=2.9.0 <2.17.0",
-    "@testing-library/react": "^12.0.0",
-    "@types/jest": "^27.0.1",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.2",
     "@types/prop-types": "^15.7.3",
-    "@types/react": "^17.0.0",
+    "@types/react": "^17.0.34",
     "eslint": "^7.21.0",
-    "jest": "^27.1.0",
+    "jest": "^27.3.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.5",
+    "prettier": "^2.4.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.0.5",
-    "typescript": "^4.4.2"
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
   },
   "peerDependencies": {
     "prop-types": "*",
@@ -52,8 +52,5 @@
   },
   "optionalDependencies": {
     "@line/liff": ">=2.9.0 <2.17.0"
-  },
-  "resolutions": {
-    "eslint-plugin-import": "2.22.1"
   }
 }
