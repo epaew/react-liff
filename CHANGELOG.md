@@ -6,6 +6,8 @@
 ## Bug Fixes
 ## BREAKING CHANGES
 ## Others
+* [#338](https://github.com/epaew/react-liff/pull/338)
+  * Upgrade outdated devDependencies
 
 # 1.2.1
 ## Bug Fixes
