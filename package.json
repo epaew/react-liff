@@ -23,7 +23,7 @@
     "clean": "rimraf dist/*",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
-    "prepack": "npm-run-all eslint clean build",
+    "prepack": "npm-run-all test clean build",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "typecheck": "tsc --noEmit"
