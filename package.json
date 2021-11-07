@@ -1,6 +1,6 @@
 {
   "name": "react-liff",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "private": false,
   "description": "A react context provider for LIFF (LINE Front-end Framework)",
   "keywords": [
@@ -23,7 +23,7 @@
     "clean": "rimraf dist/*",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
-    "prepack": "npm-run-all eslint clean build",
+    "prepack": "npm-run-all test clean build",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "typecheck": "tsc --noEmit"
