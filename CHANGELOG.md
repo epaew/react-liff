@@ -1,5 +1,8 @@
 # Unreleased
 ## Features
+## Features
+* [#347](https://github.com/epaew/react-liff/pull/347)
+  * Started supporting `@line/liff@2.17`.
 ## Bug Fixes
 ## BREAKING CHANGES
 ## Others
