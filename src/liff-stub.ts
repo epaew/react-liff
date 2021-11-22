@@ -12,6 +12,7 @@ const permanentLink: Liff['permanentLink'] = {
 };
 
 export const liffStub: LiffStub = {
+  // LiffAPIs
   init: async () => {},
   getOS: () => 'web',
   getVersion: () => '2.1.3',
@@ -130,6 +131,9 @@ export const liffStub: LiffStub = {
   _addListener: () => {},
   _removeListener: () => {},
   _postMessage: () => {},
+
+  // LiffModules
+  use: () => liffStub,
 
   // Extras
   addToHomeScreen: async () => 0,
