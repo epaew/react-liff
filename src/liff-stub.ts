@@ -1,17 +1,18 @@
 import { Liff } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type LiffStub = Liff & { [key in Exclude<string, keyof Liff>]: any };
+type Weak<T> = T & { [key in Exclude<string, keyof T>]: any };
 
 // login status
 let loginState = false;
 
-const permanentLink: Liff['permanentLink'] = {
+const permanentLink: Weak<Liff['permanentLink']> = {
   createUrl: () => 'https://liff.line.me/liffId/path',
+  createUrlBy: async () => 'https://liff.line.me/liffId/path',
   setExtraQueryParam: () => {},
 };
 
-export const liffStub: LiffStub = {
+export const liffStub: Weak<Liff> = {
   // LiffAPIs
   init: async () => {},
   getOS: () => 'web',
