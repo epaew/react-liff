@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@epaew/eslint-config": "git://github.com/epaew/eslint-config.git#master",
+    "@epaew/prettier-config": "git://github.com/epaew/prettier-config.git",
     "@line/liff": ">=2.9.0 <2.19.0",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3",
