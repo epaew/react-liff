@@ -20,10 +20,7 @@ type CreateLiffContext = <T extends Loginable>() => {
   useLiff: () => LiffContext<T>;
 };
 
-const initLiff = async <T extends Loginable>({
-  stubEnabled,
-  ...liffConfig
-}: LiffProviderProps<T>) => {
+const initLiff = async <T extends Loginable>({ stubEnabled, ...liffConfig }: LiffProviderProps<T>) => {
   if (stubEnabled) {
     if (typeof stubEnabled === 'object') {
       return { liff: { ...stub, ...stubEnabled }, ready: true };
@@ -63,9 +60,7 @@ const createLiffProvider = <T extends Loginable>(context: Context<LiffContext<T>
       })();
     }, [liffId, stubEnabled]);
 
-    return (
-      <context.Provider value={{ error, liff, isLoggedIn, ready }}>{children}</context.Provider>
-    );
+    return <context.Provider value={{ error, liff, isLoggedIn, ready }}>{children}</context.Provider>;
   };
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
