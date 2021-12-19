@@ -11,6 +11,9 @@
 
 ## Others
 
+- [#366](https://github.com/epaew/react-liff/pull/366)
+  - Update prettier configuration.
+
 # 1.4.0
 
 ## Features
