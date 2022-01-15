@@ -327,7 +327,7 @@
     eslint-plugin-react-hooks "^4.3.0"
     eslint-plugin-react-native "^3.11.0"
 
-"@epaew/prettier-config@git://github.com/epaew/prettier-config.git":
+"@epaew/prettier-config@git://github.com/epaew/prettier-config.git#master":
   version "0.1.0"
   resolved "git://github.com/epaew/prettier-config.git#96fa2d786e9d76cdd7725a780ca5958319a1d445"
 
