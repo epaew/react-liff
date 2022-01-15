@@ -295,7 +295,8 @@
 
 "@epaew/eslint-config@git://github.com/epaew/eslint-config.git#master":
   version "0.1.0"
-  resolved "git://github.com/epaew/eslint-config.git#902b2637520ebbec29f640e9bfde449d453cb9cb"
+  uid "0bc66d1bf402d12331deb9ea1cc4f5a5cb2e192d"
+  resolved "git://github.com/epaew/eslint-config.git#0bc66d1bf402d12331deb9ea1cc4f5a5cb2e192d"
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.3.1"
     "@typescript-eslint/parser" "^5.3.1"
