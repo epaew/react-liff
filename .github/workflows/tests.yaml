@@ -21,6 +21,18 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run eslint
 
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: 14.x
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn run prettier
+
   test:
     name: Jest w/ react@${{ matrix.react }} @line/liff@${{ matrix.liff-sdk }}
     runs-on: ubuntu-latest
