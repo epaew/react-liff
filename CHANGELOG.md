@@ -2,12 +2,18 @@
 
 ## Features
 
-- [#358](https://github.com/epaew/react-liff/pull/358)
-  - Started supporting `@line/liff@2.18`.
-
 ## Bug Fixes
 
 ## BREAKING CHANGES
+
+## Others
+
+# 1.5.0
+
+## Features
+
+- [#358](https://github.com/epaew/react-liff/pull/358)
+  - Started supporting `@line/liff@2.18`.
 
 ## Others
 
