@@ -2,6 +2,7 @@
 root: true
 extends:
   - '@epaew/eslint-config/react-typescript'
+  - 'prettier'
 plugins:
   - '@typescript-eslint'
 rules:
