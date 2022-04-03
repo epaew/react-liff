@@ -293,9 +293,9 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@epaew/eslint-config@git://github.com/epaew/eslint-config.git#master":
+"@epaew/eslint-config@https://github.com/epaew/eslint-config.git#master":
   version "0.1.0"
-  resolved "git://github.com/epaew/eslint-config.git#94951d951191966be7bc678a707a8d7f8b9e2320"
+  resolved "https://github.com/epaew/eslint-config.git#e07bd0a61dabccc9d8ab6e0e0adaf509cdab27cc"
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.9.1"
     "@typescript-eslint/parser" "^5.9.1"
@@ -309,9 +309,9 @@
     eslint-plugin-react-hooks "^4.3.0"
     eslint-plugin-react-native "^4.0.0"
 
-"@epaew/prettier-config@git://github.com/epaew/prettier-config.git#master":
+"@epaew/prettier-config@https://github.com/epaew/prettier-config.git#master":
   version "0.1.0"
-  resolved "git://github.com/epaew/prettier-config.git#96fa2d786e9d76cdd7725a780ca5958319a1d445"
+  resolved "https://github.com/epaew/prettier-config.git#96fa2d786e9d76cdd7725a780ca5958319a1d445"
 
 "@eslint/eslintrc@^1.1.0":
   version "1.1.0"
