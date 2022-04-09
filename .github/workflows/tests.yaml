@@ -112,7 +112,7 @@ jobs:
           node-version: 14.x
           cache: yarn
       - name: Download the result of build react-liff
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: dist
           path: dist
