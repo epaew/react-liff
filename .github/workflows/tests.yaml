@@ -45,6 +45,7 @@ jobs:
         react:
           - 16
           - 17
+          - 18
         liff-sdk:
           - '2.9'
           - '2.10'
@@ -62,6 +63,9 @@ jobs:
             liff-sdk: latest
             continue-on-error: true
           - react: 17
+            liff-sdk: latest
+            continue-on-error: true
+          - react: 18
             liff-sdk: latest
             continue-on-error: true
     steps:

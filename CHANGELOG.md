@@ -2,6 +2,9 @@
 
 ## Features
 
+- [#425](https://github.com/epaew/react-liff/pull/425)
+  - Started supporting `react@18.x`.
+
 ## Bug Fixes
 
 ## BREAKING CHANGES
