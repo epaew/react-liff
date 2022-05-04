@@ -48,7 +48,7 @@ const LiffProviderPropTypes = {
 };
 
 const createLiffProvider = <T extends Loginable>(context: Context<LiffContext<T>>) => {
-  const LiffProvider: FC<LiffProviderProps<T>> = ({ children, liffId, stubEnabled = false }) => {
+  const LiffProvider: FC<LiffProviderProps<T>> = ({ children, stubEnabled = false, ...liffConfig }) => {
     const [error, setError] = useState<unknown>();
     const [originalLiff, setLiff] = useState<T>(stub as T);
     const [ready, setReady] = useState(false);
@@ -56,12 +56,12 @@ const createLiffProvider = <T extends Loginable>(context: Context<LiffContext<T>
 
     useEffect(() => {
       (async () => {
-        const { error, liff, ready } = await initLiff({ liffId, stubEnabled });
+        const { error, liff, ready } = await initLiff({ stubEnabled, ...liffConfig });
         setError(error);
         setLiff(liff as T);
         setReady(ready);
       })();
-    }, [liffId, stubEnabled]);
+    }, [stubEnabled, liffConfig]);
 
     return <context.Provider value={{ error, liff, isLoggedIn, ready }}>{children}</context.Provider>;
   };
