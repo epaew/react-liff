@@ -21,7 +21,7 @@ overrides:
       node: true
   - files:
       - '__mocks__/*'
-      - '__tests__/*'
+      - '*.test.ts{,x}'
     plugins:
       - '@typescript-eslint'
       - react
