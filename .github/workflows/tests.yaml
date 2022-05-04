@@ -93,7 +93,7 @@ jobs:
 
       - run: yarn run build
       - name: Upload the result of build react-liff
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
