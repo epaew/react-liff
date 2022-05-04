@@ -1,12 +1,15 @@
 import * as PropTypes from 'prop-types';
-import { Consumer, Context, createContext, FC, useContext, useEffect, useState } from 'react';
+import { Consumer, Context, createContext, FC, ReactNode, useContext, useEffect, useState } from 'react';
 
 import { liffStub as stub } from './liff-stub';
 import { Liff, LiffConfig, Loginable } from './types';
 import { useLoginStateManager } from './use-login-state-manager';
 
-interface LiffProviderProps<T> extends LiffConfig {
+interface InitLiffProps<T> extends LiffConfig {
   stubEnabled?: boolean | Partial<T>;
+}
+interface LiffProviderProps<T> extends InitLiffProps<T> {
+  children: ReactNode;
 }
 interface LiffContext<T> {
   error?: unknown;
@@ -20,7 +23,7 @@ type CreateLiffContext = <T extends Loginable>() => {
   useLiff: () => LiffContext<T>;
 };
 
-const initLiff = async <T extends Loginable>({ stubEnabled, ...liffConfig }: LiffProviderProps<T>) => {
+const initLiff = async <T extends Loginable>({ stubEnabled, ...liffConfig }: InitLiffProps<T>) => {
   if (stubEnabled) {
     if (typeof stubEnabled === 'object') {
       return { liff: { ...stub, ...stubEnabled }, ready: true };
