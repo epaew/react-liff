@@ -34,39 +34,43 @@ jobs:
       - run: yarn run prettier
 
   test:
-    name: Jest w/ react@${{ matrix.react }} @line/liff@${{ matrix.liff-sdk }}
+    name: Jest w/ react@${{ matrix.react.react-version }} @line/liff@${{ matrix.liff-sdk.sdk-version }}
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.continue-on-error }}
+    continue-on-error: ${{ matrix.liff-sdk.continue-on-error }}
     strategy:
       fail-fast: false
       matrix:
-        continue-on-error:
-          - false
         react:
-          - 16
-          - 17
-          - 18
+          - react-version: 16
+            testing-library-react-version: 12
+          - react-version: 17
+            testing-library-react-version: 12
+          - react-version: 18
+            testing-library-react-version: 13
         liff-sdk:
-          - '2.9'
-          - '2.10'
-          - '2.11'
-          - '2.12'
-          - '2.13'
-          - '2.14'
-          - '2.15'
-          - '2.16'
-          - '2.17'
-          - '2.18'
-          - '2.19'
-        include:
-          - react: 16
-            liff-sdk: latest
-            continue-on-error: true
-          - react: 17
-            liff-sdk: latest
-            continue-on-error: true
-          - react: 18
-            liff-sdk: latest
+          - sdk-version: '2.9'
+            continue-on-error: false
+          - sdk-version: '2.10'
+            continue-on-error: false
+          - sdk-version: '2.11'
+            continue-on-error: false
+          - sdk-version: '2.12'
+            continue-on-error: false
+          - sdk-version: '2.13'
+            continue-on-error: false
+          - sdk-version: '2.14'
+            continue-on-error: false
+          - sdk-version: '2.15'
+            continue-on-error: false
+          - sdk-version: '2.16'
+            continue-on-error: false
+          - sdk-version: '2.17'
+            continue-on-error: false
+          - sdk-version: '2.18'
+            continue-on-error: false
+          - sdk-version: '2.19'
+            continue-on-error: false
+          - sdk-version: latest
             continue-on-error: true
     steps:
       - uses: actions/checkout@v3
@@ -76,9 +80,14 @@ jobs:
           cache: yarn
       - run: yarn install --frozen-lockfile
       - name: Reinstall specific version of react.js
-        run: yarn add -D react@${{ matrix.react }} react-dom@${{ matrix.react }} @types/react@${{ matrix.react }}
+        run: |
+          yarn add -D \
+          react@${{ matrix.react.react-version }} \
+          react-dom@${{ matrix.react.react-version }} \
+          @types/react@${{ matrix.react.react-version }} \
+          @testing-library/react@${{ matrix.react.testing-library-react-version }}
       - name: Reinstall specific version of @line/liff SDK
-        run: yarn add -D @line/liff@${{ matrix.liff-sdk }}
+        run: yarn add -D @line/liff@${{ matrix.liff-sdk.sdk-version }}
       - run: yarn run test:coverage
       - name: Reset local changes
         run: git checkout . && yarn
