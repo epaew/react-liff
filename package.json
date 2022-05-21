@@ -38,7 +38,7 @@
     "@epaew/eslint-config": "https://github.com/epaew/eslint-config.git#master",
     "@epaew/prettier-config": "https://github.com/epaew/prettier-config.git#master",
     "@line/liff": ">=2.9.0 <2.20.0",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^13.2.0",
     "@types/jest": "^27.5.0",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^18.0.8",
