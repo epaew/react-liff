@@ -37,9 +37,9 @@
   "devDependencies": {
     "@epaew/eslint-config": "https://github.com/epaew/eslint-config.git#master",
     "@epaew/prettier-config": "https://github.com/epaew/prettier-config.git#master",
-    "@line/liff": ">=2.9.0 <2.20.0",
+    "@line/liff": ">=2.9.0 <2.21.0",
     "@testing-library/react": "^13.2.0",
-    "@types/jest": "^27.5.0",
+    "@types/jest": "^28.1.1",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^18.0.8",
     "eslint": "^8.6.0",
@@ -60,6 +60,6 @@
     "react": ">=16.14.0 <19.0.0"
   },
   "optionalDependencies": {
-    "@line/liff": ">=2.9.0 <2.20.0"
+    "@line/liff": ">=2.9.0 <2.21.0"
   }
 }
