@@ -4,6 +4,8 @@
 
 - [#425](https://github.com/epaew/react-liff/pull/425)
   - Started supporting `react@18.x`.
+- [#443](https://github.com/epaew/react-liff/pull/443)
+  - Started supporting `@line/liff@2.20`.
 
 ## Bug Fixes
 
