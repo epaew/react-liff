@@ -70,6 +70,8 @@ jobs:
             continue-on-error: false
           - sdk-version: '2.19'
             continue-on-error: false
+          - sdk-version: '2.20'
+            continue-on-error: false
           - sdk-version: latest
             continue-on-error: true
     steps:
