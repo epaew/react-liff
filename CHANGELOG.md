@@ -13,6 +13,9 @@
 
 ## Others
 
+- [#448](https://github.com/epaew/react-liff/pull/448)
+  - mv `__tests__/*.test.tsx` to `src/`.
+
 # 1.5.1
 
 ## Features

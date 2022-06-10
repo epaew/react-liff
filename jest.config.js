@@ -1,14 +1,13 @@
 module.exports = {
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts{,x}'],
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.ts{,x}',
+    '!<rootDir>/src/**/*.test.ts{,x}',
+  ],
   globals: {
     'ts-jest': {
-      tsconfig: '__tests__/tsconfig.json',
+      tsconfig: 'tsconfig.test.json',
     },
-  },
-  moduleNameMapper: {
-    '^#/(.+)': '<rootDir>/src/$1',
   },
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  testMatch: ['<rootDir>/__tests__/**/*.test.ts{,x}'],
 };

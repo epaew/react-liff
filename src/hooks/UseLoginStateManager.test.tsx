@@ -2,7 +2,7 @@ import { default as liffMock } from '@line/liff';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { FC } from 'react';
 
-import { useLoginStateManager } from '#/use-login-state-manager';
+import { useLoginStateManager } from './use-login-state-manager';
 
 jest.mock('@line/liff');
 

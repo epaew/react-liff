@@ -1,9 +1,9 @@
 import * as PropTypes from 'prop-types';
 import { Consumer, Context, createContext, FC, ReactNode, useContext, useEffect, useState } from 'react';
 
+import { useLoginStateManager } from './hooks';
 import { liffStub as stub } from './liff-stub';
 import { Liff, LiffConfig, Loginable } from './types';
-import { useLoginStateManager } from './use-login-state-manager';
 
 interface InitLiffProps<T> extends LiffConfig {
   stubEnabled?: boolean | Partial<T>;

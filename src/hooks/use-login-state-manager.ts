@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Loginable } from './types';
+import { Loginable } from '../types';
 
 export const useLoginStateManager = <T extends Loginable>(liff?: T): [boolean, T] => {
   const { isLoggedIn = () => false, login = () => {}, logout = () => {}, ...rest } = liff ?? {};
