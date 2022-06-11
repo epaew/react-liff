@@ -293,17 +293,18 @@
 
 "@epaew/eslint-config@https://github.com/epaew/eslint-config.git#master":
   version "0.1.0"
-  resolved "https://github.com/epaew/eslint-config.git#8b1f37d11106b55c4fc6476b2d4b0686c6fec493"
+  uid cc03cff820fa6bcba2957ac9556f463790a6b89e
+  resolved "https://github.com/epaew/eslint-config.git#cc03cff820fa6bcba2957ac9556f463790a6b89e"
   dependencies:
-    "@typescript-eslint/eslint-plugin" "^5.22.0"
-    "@typescript-eslint/parser" "^5.22.0"
+    "@typescript-eslint/eslint-plugin" "^5.27.1"
+    "@typescript-eslint/parser" "^5.27.1"
     eslint-import-resolver-typescript "^2.7.1"
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-filenames-simple "^0.7.0"
     eslint-plugin-import "^2.26.0"
-    eslint-plugin-jest "^26.1.5"
+    eslint-plugin-jest "^26.5.3"
     eslint-plugin-node "^11.1.0"
-    eslint-plugin-react "^7.29.4"
+    eslint-plugin-react "^7.30.0"
     eslint-plugin-react-hooks "^4.5.0"
     eslint-plugin-react-native "^4.0.0"
 
@@ -1320,7 +1321,7 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@typescript-eslint/eslint-plugin@^5.22.0":
+"@typescript-eslint/eslint-plugin@^5.27.1":
   version "5.27.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.27.1.tgz#fdf59c905354139046b41b3ed95d1609913d0758"
   integrity sha512-6dM5NKT57ZduNnJfpY81Phe9nc9wolnMCnknb1im6brWi1RYv84nbMS3olJa27B6+irUVV1X/Wb+Am0FjJdGFw==
@@ -1335,7 +1336,7 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/parser@^5.22.0":
+"@typescript-eslint/parser@^5.27.1":
   version "5.27.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.27.1.tgz#3a4dcaa67e45e0427b6ca7bb7165122c8b569639"
   integrity sha512-7Va2ZOkHi5NP+AZwb5ReLgNF6nWLGTeUJfxdkVUAPPSaAdbWNnFZzLZ4EGGmmiCTg+AwlbE1KyUYTBglosSLHQ==
@@ -2160,7 +2161,7 @@ eslint-plugin-import@^2.26.0:
     resolve "^1.22.0"
     tsconfig-paths "^3.14.1"
 
-eslint-plugin-jest@^26.1.5:
+eslint-plugin-jest@^26.5.3:
   version "26.5.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.5.3.tgz#a3ceeaf4a757878342b8b00eca92379b246e5505"
   integrity sha512-sICclUqJQnR1bFRZGLN2jnSVsYOsmPYYnroGCIMVSvTS3y8XR3yjzy1EcTQmk6typ5pRgyIWzbjqxK6cZHEZuQ==
@@ -2197,7 +2198,7 @@ eslint-plugin-react-native@^4.0.0:
     "@babel/traverse" "^7.7.4"
     eslint-plugin-react-native-globals "^0.1.1"
 
-eslint-plugin-react@^7.29.4:
+eslint-plugin-react@^7.30.0:
   version "7.30.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.30.0.tgz#8e7b1b2934b8426ac067a0febade1b13bd7064e3"
   integrity sha512-RgwH7hjW48BleKsYyHK5vUAvxtE9SMPDKmcPRQgtRCYaZA0XQPt5FSkrU3nhz5ifzMZcA8opwmRJ2cmOO8tr5A==
