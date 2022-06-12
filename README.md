@@ -10,7 +10,7 @@ A react context provider for LIFF (LINE Front-end Framework)
 
 - [React](https://reactjs.org/) v16.14 or later
   - React Native is not supported.
-- [LIFF SDK](https://developers.line.biz/en/docs/liff/release-notes/#liff-version-and-release-date) version >=2.9.0
+- [LIFF SDK](https://developers.line.biz/en/docs/liff/release-notes/#liff-version-and-release-date) version >=2.19.1
 
 ## Getting started
 
