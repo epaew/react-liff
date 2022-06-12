@@ -4,6 +4,9 @@
 
 ## Bug Fixes
 
+- [#424](https://github.com/epaew/react-liff/pull/424)
+  - LiffProvider was not passing option `liffConfig.withLoginOnExternalBrowser` to the LIFF SDK.
+
 ## BREAKING CHANGES
 
 - [#452](https://github.com/epaew/react-liff/pull/452)
