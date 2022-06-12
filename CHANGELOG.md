@@ -18,6 +18,9 @@
 
 ## Others
 
+- [#458](https://github.com/epaew/react-liff/pull/458)
+  - Refactoring: Remove type generics: is overspec.
+
 # 1.6.0
 
 ## Features
