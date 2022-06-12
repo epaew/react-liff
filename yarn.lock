@@ -293,7 +293,6 @@
 
 "@epaew/eslint-config@https://github.com/epaew/eslint-config.git#master":
   version "0.1.0"
-  uid cc03cff820fa6bcba2957ac9556f463790a6b89e
   resolved "https://github.com/epaew/eslint-config.git#cc03cff820fa6bcba2957ac9556f463790a6b89e"
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.27.1"
@@ -1028,7 +1027,7 @@
     file-type "^15.0.0"
     form-data "^3.0.0"
 
-"@line/liff@>=2.9.0 <2.21.0":
+"@line/liff@>=2.19.1 <2.21.0":
   version "2.20.2"
   resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.20.2.tgz#831be41a44c9ae10e96a38ad855524e897d38bcf"
   integrity sha512-af2EOeuUpoIxsRV4rqSZrWTf9m8UrTiDQg/sTefcb/kqdgSpP54FzB6aMeUbL4QNmnA1zVCM4oQ3F2an93c2Wg==
