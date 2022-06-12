@@ -124,13 +124,13 @@ A react context provider for LIFF (LINE Front-end Framework)
 
 - `liffId`: `string`, required
   - The ID of your LIFF application.
-  - When you using stubs, you can specify empty string.
-- `stubEnabled`: `boolean | Object | undefined`, optional
-  - `false` or `undefined`: Provider uses LIFF SDK (for Production).
-  - `true`: Provider uses stubs defined in library.
-  - `Object`: Provider uses the stubs you specified here.
 - `withLoginOnExternalBrowser`: `boolean`, optional
   - See the API reference of `liff.init()`. https://developers.line.biz/en/reference/liff/#initialize-liff-app-arguments
+- `plugins`: `Array<LiffPlugin | [LiffPlugin, LiffPluginOption]>`, optional
+  - List of LIFF plugin instances.
+  - If you need to pass option to plugin, you can use the list of tuple `[pluginInstance, pluginOption]`.
+- `callback`: `(liff: Liff) => Promise<void>`, optional
+  - Callback function that fires after `liff.init()` has been succeeded.
 
 ### LiffConsumer / useLiff return values
 
