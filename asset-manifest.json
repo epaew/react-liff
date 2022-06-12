@@ -1,24 +1,14 @@
 {
   "files": {
-    "main.css": "/react-liff/static/css/main.2236af4e.chunk.css",
-    "main.js": "/react-liff/static/js/main.aa778fc9.chunk.js",
-    "main.js.map": "/react-liff/static/js/main.aa778fc9.chunk.js.map",
-    "runtime-main.js": "/react-liff/static/js/runtime-main.1652a506.js",
-    "runtime-main.js.map": "/react-liff/static/js/runtime-main.1652a506.js.map",
-    "static/js/2.4eeee761.chunk.js": "/react-liff/static/js/2.4eeee761.chunk.js",
-    "static/js/2.4eeee761.chunk.js.map": "/react-liff/static/js/2.4eeee761.chunk.js.map",
+    "main.css": "/react-liff/static/css/main.5b1f9bb9.css",
+    "main.js": "/react-liff/static/js/main.151cb41e.js",
+    "static/media/logo.svg": "/react-liff/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
     "index.html": "/react-liff/index.html",
-    "precache-manifest.84abb96b976fbdebbf6ddfbf36371448.js": "/react-liff/precache-manifest.84abb96b976fbdebbf6ddfbf36371448.js",
-    "service-worker.js": "/react-liff/service-worker.js",
-    "static/css/main.2236af4e.chunk.css.map": "/react-liff/static/css/main.2236af4e.chunk.css.map",
-    "static/js/2.4eeee761.chunk.js.LICENSE.txt": "/react-liff/static/js/2.4eeee761.chunk.js.LICENSE.txt",
-    "static/js/main.aa778fc9.chunk.js.LICENSE.txt": "/react-liff/static/js/main.aa778fc9.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/react-liff/static/media/logo.5d5d9eef.svg"
+    "main.5b1f9bb9.css.map": "/react-liff/static/css/main.5b1f9bb9.css.map",
+    "main.151cb41e.js.map": "/react-liff/static/js/main.151cb41e.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.1652a506.js",
-    "static/js/2.4eeee761.chunk.js",
-    "static/css/main.2236af4e.chunk.css",
-    "static/js/main.aa778fc9.chunk.js"
+    "static/css/main.5b1f9bb9.css",
+    "static/js/main.151cb41e.js"
   ]
 }
