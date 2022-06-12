@@ -2,7 +2,7 @@ import { Liff } from '@line/liff';
 
 import { liffStub as stub } from '../liff-stub';
 
-import { InitLiffProps } from './types';
+import { InitLiff } from './types';
 
 // eslint-disable-next-line filenames-simple/typescript-module-declaration
 declare global {
@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export const initLiff = async ({ stubEnabled, ...liffConfig }: InitLiffProps) => {
+export const initLiff: InitLiff = async ({ stubEnabled, ...liffConfig }) => {
   if (stubEnabled) {
     if (typeof stubEnabled === 'object') {
       return { liff: { ...stub, ...stubEnabled }, ready: true };

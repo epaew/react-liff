@@ -14,6 +14,14 @@ export interface CreateLiffProvider {
   (context: Context<LiffContextStates>): FC<LiffProviderProps>;
 }
 
+export interface InitLiff {
+  (props: InitLiffProps): Promise<{
+    error?: unknown;
+    liff?: Liff;
+    ready: boolean;
+  }>;
+}
+
 export interface InitLiffProps extends LiffConfig {
   stubEnabled?: boolean | Partial<Liff>;
 }
