@@ -11,6 +11,8 @@
 
 - [#452](https://github.com/epaew/react-liff/pull/452)
   - Dropped supporting `react@16.x`, `react@17.x`.
+- [#453](https://github.com/epaew/react-liff/pull/453)
+  - Dropped supporting `@line/liff` version 2.19.0 or earlier.
 
 ## Others
 
