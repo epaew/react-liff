@@ -1,11 +1,14 @@
-import { default as liff } from '@line/liff';
+import { Liff } from '@line/liff';
 
-type Liff = typeof liff;
 type IdWritableLiff = Omit<Liff, 'id'> & { id: string | null };
 
 let loginState = false;
 
 const liffMock: Partial<IdWritableLiff> = {
+  id: null,
+  init: jest.fn().mockImplementation(async ({ liffId }: { liffId: string }) => {
+    liffMock.id = liffId;
+  }),
   isLoggedIn: jest.fn().mockImplementation(() => loginState),
   login: jest.fn().mockImplementation(() => {
     loginState = true;
@@ -13,10 +16,7 @@ const liffMock: Partial<IdWritableLiff> = {
   logout: jest.fn().mockImplementation(() => {
     loginState = false;
   }),
-  id: null,
-  init: jest.fn().mockImplementation(async ({ liffId }: { liffId: string }) => {
-    liffMock.id = liffId;
-  }),
+  use: jest.fn(),
 };
 
 // eslint-disable-next-line import/no-default-export
