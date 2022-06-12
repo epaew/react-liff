@@ -29,8 +29,8 @@ export interface InitLiffProps extends LiffConfig {
 export interface LiffContextStates {
   error?: unknown;
   isLoggedIn: boolean;
+  isReady: boolean;
   liff: Liff;
-  ready: boolean;
 }
 
 export interface LiffProviderProps extends InitLiffProps {

@@ -18,20 +18,21 @@ const LiffProviderPropTypes = {
 export const createLiffProvider: CreateLiffProvider = context => {
   const LiffProvider: FC<LiffProviderProps> = ({ children, stubEnabled = false, ...liffConfig }) => {
     const [error, setError] = useState<unknown>();
+    const [isReady, setIsReady] = useState(false);
+
     const [originalLiff, setLiff] = useState<Liff>();
-    const [ready, setReady] = useState(false);
     const [isLoggedIn, liff] = useLoginStateManager(originalLiff);
 
     useEffect(() => {
       (async () => {
         const { error, liff, ready } = await initLiff({ stubEnabled, ...liffConfig });
         setError(error);
+        setIsReady(ready);
         setLiff(liff as Liff);
-        setReady(ready);
       })();
     }, [stubEnabled, liffConfig]);
 
-    return createElement(context.Provider, { value: { error, liff, isLoggedIn, ready } }, children);
+    return createElement(context.Provider, { value: { error, isLoggedIn, isReady, liff } }, children);
   };
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
