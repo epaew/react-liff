@@ -10,11 +10,11 @@ export const useLoginStateManager = <T extends Loginable>(liff?: T): [boolean, T
     setLoginState(isLoggedIn());
   }, [isLoggedIn]);
 
-  const customLogin = () => {
-    login();
+  const customLogin: Loginable['login'] = (...args) => {
+    login(...args);
     setLoginState(isLoggedIn());
   };
-  const customLogout = () => {
+  const customLogout: Loginable['logout'] = () => {
     logout();
     setLoginState(isLoggedIn());
   };

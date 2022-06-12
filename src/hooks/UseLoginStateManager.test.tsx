@@ -12,10 +12,10 @@ const TestComponent: FC<{ liff?: any }> = ({ liff }) => {
   return (
     <>
       <p data-testid="logged-in">{isLoggedIn.toString()}</p>
-      <button data-testid="login" onClick={customLiff.login}>
+      <button data-testid="login" onClick={() => customLiff.login()}>
         login
       </button>
-      <button data-testid="logout" onClick={customLiff.logout}>
+      <button data-testid="logout" onClick={() => customLiff.logout()}>
         logout
       </button>
     </>
