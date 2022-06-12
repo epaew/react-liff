@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-liff/static/css/main.5b1f9bb9.css",
-    "main.js": "/react-liff/static/js/main.25d481ba.js",
+    "main.js": "/react-liff/static/js/main.5310e276.js",
     "static/media/logo.svg": "/react-liff/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
     "index.html": "/react-liff/index.html",
     "main.5b1f9bb9.css.map": "/react-liff/static/css/main.5b1f9bb9.css.map",
-    "main.25d481ba.js.map": "/react-liff/static/js/main.25d481ba.js.map"
+    "main.5310e276.js.map": "/react-liff/static/js/main.5310e276.js.map"
   },
   "entrypoints": [
     "static/css/main.5b1f9bb9.css",
-    "static/js/main.25d481ba.js"
+    "static/js/main.5310e276.js"
   ]
 }
