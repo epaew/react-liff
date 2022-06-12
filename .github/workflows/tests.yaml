@@ -41,12 +41,7 @@ jobs:
       fail-fast: false
       matrix:
         react:
-          - react-version: 16
-            testing-library-react-version: 12
-          - react-version: 17
-            testing-library-react-version: 12
           - react-version: 18
-            testing-library-react-version: 13
         liff-sdk:
           - sdk-version: '2.9'
             continue-on-error: false
@@ -86,8 +81,7 @@ jobs:
           yarn add -D \
           react@${{ matrix.react.react-version }} \
           react-dom@${{ matrix.react.react-version }} \
-          @types/react@${{ matrix.react.react-version }} \
-          @testing-library/react@${{ matrix.react.testing-library-react-version }}
+          @types/react@${{ matrix.react.react-version }}
       - name: Reinstall specific version of @line/liff SDK
         run: yarn add -D @line/liff@${{ matrix.liff-sdk.sdk-version }}
       - run: yarn run test:coverage
