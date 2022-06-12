@@ -6,6 +6,8 @@
 
 - [#424](https://github.com/epaew/react-liff/pull/424)
   - LiffProvider was not passing option `liffConfig.withLoginOnExternalBrowser` to the LIFF SDK.
+- [#456](https://github.com/epaew/react-liff/pull/456)
+  - `customLogin()` was not passing option `loginConfig.redirectUri` to the original `login()`.
 
 ## BREAKING CHANGES
 
