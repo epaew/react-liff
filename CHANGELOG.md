@@ -9,7 +9,7 @@
 
 ## BREAKING CHANGES
 
-- [#452](https://github.com/epaew/react-liff/pull/452)
+- [#452](https://github.com/epaew/react-liff/pull/452) [#454](https://github.com/epaew/react-liff/pull/454)
   - Dropped supporting `react@16.x`, `react@17.x`.
 
 ## Others
