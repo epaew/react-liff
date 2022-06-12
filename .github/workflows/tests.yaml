@@ -43,26 +43,6 @@ jobs:
         react:
           - react-version: 18
         liff-sdk:
-          - sdk-version: '2.9'
-            continue-on-error: false
-          - sdk-version: '2.10'
-            continue-on-error: false
-          - sdk-version: '2.11'
-            continue-on-error: false
-          - sdk-version: '2.12'
-            continue-on-error: false
-          - sdk-version: '2.13'
-            continue-on-error: false
-          - sdk-version: '2.14'
-            continue-on-error: false
-          - sdk-version: '2.15'
-            continue-on-error: false
-          - sdk-version: '2.16'
-            continue-on-error: false
-          - sdk-version: '2.17'
-            continue-on-error: false
-          - sdk-version: '2.18'
-            continue-on-error: false
           - sdk-version: '2.19'
             continue-on-error: false
           - sdk-version: '2.20'
