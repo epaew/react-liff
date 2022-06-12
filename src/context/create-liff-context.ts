@@ -7,8 +7,8 @@ import { CreateLiffContext, LiffContextStates } from './types';
 export const createLiffContext: CreateLiffContext = () => {
   const context = createContext<LiffContextStates>({
     isLoggedIn: false,
+    isReady: false,
     liff: {} as Liff,
-    ready: false,
   });
   context.displayName = 'LiffContext';
 

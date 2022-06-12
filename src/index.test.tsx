@@ -9,11 +9,11 @@ import { LiffProvider, useLiff } from '.';
 jest.mock('@line/liff');
 
 const TestComponent: FC = () => {
-  const { error, liff, ready } = useLiff();
+  const { error, isReady, liff } = useLiff();
 
   return (
     <>
-      <p data-testid="ready">{ready.toString()}</p>
+      <p data-testid="isReady">{isReady.toString()}</p>
       <p data-testid="error.message">{error instanceof Error && error.message}</p>
       <p data-testid="liff.id">{liff?.id}</p>
     </>
@@ -33,7 +33,7 @@ describe('LiffProvider', () => {
         const { getByTestId } = render(tree());
 
         await waitFor(() => {
-          expect(getByTestId('ready').textContent).toBe('true');
+          expect(getByTestId('isReady').textContent).toBe('true');
           expect(getByTestId('error.message').textContent).toBe('');
           expect(getByTestId('liff.id').textContent).toBe('myLiffId');
         });
@@ -51,7 +51,7 @@ describe('LiffProvider', () => {
         const { getByTestId } = render(tree(false));
 
         await waitFor(() => {
-          expect(getByTestId('ready').textContent).toBe('false');
+          expect(getByTestId('isReady').textContent).toBe('false');
           expect(getByTestId('error.message').textContent).toBe('Failed to initialize liff.');
         });
       });
@@ -63,7 +63,7 @@ describe('LiffProvider', () => {
       const { getByTestId } = render(tree(true));
 
       await waitFor(() => {
-        expect(getByTestId('ready').textContent).toBe('true');
+        expect(getByTestId('isReady').textContent).toBe('true');
         expect(getByTestId('error.message').textContent).toBe('');
         expect(getByTestId('liff.id').textContent).toBe('liffId');
       });
@@ -75,7 +75,7 @@ describe('LiffProvider', () => {
       const { getByTestId } = render(tree({ id: 'overriddenLiffId' }));
 
       await waitFor(() => {
-        expect(getByTestId('ready').textContent).toBe('true');
+        expect(getByTestId('isReady').textContent).toBe('true');
         expect(getByTestId('error.message').textContent).toBe('');
         expect(getByTestId('liff.id').textContent).toBe('overriddenLiffId');
       });
