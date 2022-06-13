@@ -1,6 +1,7 @@
+import type { Liff } from '@line/liff';
 import type { Consumer, Context, FC, ReactNode } from 'react';
 
-import { Liff, LiffConfig } from '../types';
+import type { GetInitializedLiffProps } from '../lib';
 
 export interface CreateLiffContext {
   (): {
@@ -14,18 +15,6 @@ export interface CreateLiffProvider {
   (context: Context<LiffContextStates>): FC<LiffProviderProps>;
 }
 
-export interface InitLiff {
-  (props: InitLiffProps): Promise<{
-    error?: unknown;
-    liff?: Liff;
-    ready: boolean;
-  }>;
-}
-
-export interface InitLiffProps extends LiffConfig {
-  stubEnabled?: boolean | Partial<Liff>;
-}
-
 export interface LiffContextStates {
   error?: unknown;
   isLoggedIn: boolean;
@@ -33,6 +22,6 @@ export interface LiffContextStates {
   liff: Liff;
 }
 
-export interface LiffProviderProps extends InitLiffProps {
+export interface LiffProviderProps extends GetInitializedLiffProps {
   children: ReactNode;
 }

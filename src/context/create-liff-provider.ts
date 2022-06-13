@@ -3,8 +3,8 @@ import * as PropTypes from 'prop-types';
 import { createElement, FC, useEffect, useState } from 'react';
 
 import { useLoginStateManager } from '../hooks';
+import { getInitializedLiff } from '../lib';
 
-import { initLiff } from './init-liff';
 import { CreateLiffProvider, LiffProviderProps } from './types';
 
 const LiffProviderPropTypes = {
@@ -16,7 +16,7 @@ const LiffProviderPropTypes = {
 };
 
 export const createLiffProvider: CreateLiffProvider = context => {
-  const LiffProvider: FC<LiffProviderProps> = ({ children, stubEnabled = false, ...liffConfig }) => {
+  const LiffProvider: FC<LiffProviderProps> = ({ children, ...rest }) => {
     const [error, setError] = useState<unknown>();
     const [isReady, setIsReady] = useState(false);
 
@@ -25,12 +25,14 @@ export const createLiffProvider: CreateLiffProvider = context => {
 
     useEffect(() => {
       (async () => {
-        const { error, liff, ready } = await initLiff({ stubEnabled, ...liffConfig });
-        setError(error);
-        setIsReady(ready);
-        setLiff(liff as Liff);
+        try {
+          setLiff(await getInitializedLiff(rest));
+          setIsReady(true);
+        } catch (e: unknown) {
+          setError(e);
+        }
       })();
-    }, [stubEnabled, liffConfig]);
+    }, [rest]);
 
     return createElement(context.Provider, { value: { error, isLoggedIn, isReady, liff } }, children);
   };
