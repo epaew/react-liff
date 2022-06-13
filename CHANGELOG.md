@@ -30,6 +30,8 @@
   - Refactoring: Remove type generics: is overspec.
 - [#459](https://github.com/epaew/react-liff/pull/459)
   - Refactoring: Move and split src/Context.tsx
+- [#461](https://github.com/epaew/react-liff/pull/461)
+  - Update test workflow to send test coverage to Code Climate.
 
 # 1.6.0
 

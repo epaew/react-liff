@@ -64,7 +64,17 @@ jobs:
           @types/react@${{ matrix.react.react-version }}
       - name: Reinstall specific version of @line/liff SDK
         run: yarn add -D @line/liff@${{ matrix.liff-sdk.sdk-version }}
-      - run: yarn run test:coverage
+
+      - name: yarn run test && report coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: de17efec54641dd4eb561f1b0bdede12f7e310f921137eb3465771b63cbbe2f0
+        with:
+          coverageCommand: yarn test:ci
+          coverageLocations: |
+            ${{ github.workspace }}/coverage/lcov.info:lcov
+          debug: true
+
       - name: Reset local changes
         run: git checkout . && yarn
 
