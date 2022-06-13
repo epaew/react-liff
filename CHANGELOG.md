@@ -2,6 +2,9 @@
 
 ## Features
 
+- [#455](https://github.com/epaew/react-liff/pull/455)
+  - Add `plugins` `callback` to LiffProvider optional props to use LIFF plugins.
+
 ## Bug Fixes
 
 - [#424](https://github.com/epaew/react-liff/pull/424)
@@ -17,6 +20,9 @@
   - Dropped supporting `@line/liff` version 2.19.0 or earlier.
 - [#460](https://github.com/epaew/react-liff/pull/460)
   - Rename the value of `useLiff()` returns: `ready` => `isReady`.
+- [#455](https://github.com/epaew/react-liff/pull/455)
+  - Remove `stubEnabled` from LiffProvider props.
+  - You can use LIFF plugin `@line/liff-mock` instead.
 
 ## Others
 
