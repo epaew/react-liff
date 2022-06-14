@@ -23,6 +23,9 @@
 - [#455](https://github.com/epaew/react-liff/pull/455)
   - Remove `stubEnabled` from LiffProvider props.
   - You can use LIFF plugin `@line/liff-mock` instead.
+- [#463](https://github.com/epaew/react-liff/pull/463)
+  - Now, `@line/liff` is an optional peer dependency for `react-liff`.
+  - You need to add `@line/liff` to your app's dependencies yourself.
 
 ## Others
 
