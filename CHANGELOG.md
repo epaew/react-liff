@@ -16,8 +16,9 @@
 
 - [#452](https://github.com/epaew/react-liff/pull/452) [#454](https://github.com/epaew/react-liff/pull/454)
   - Dropped supporting `react@16.x`, `react@17.x`.
-- [#453](https://github.com/epaew/react-liff/pull/453)
+- [#453](https://github.com/epaew/react-liff/pull/453) [#473](https://github.com/epaew/react-liff/pull/473)
   - Dropped supporting `@line/liff` version 2.19.0 or earlier.
+  - Relax the upper limit of `@line/liff` version.
 - [#460](https://github.com/epaew/react-liff/pull/460)
   - Rename the value of `useLiff()` returns: `ready` => `isReady`.
 - [#455](https://github.com/epaew/react-liff/pull/455)
