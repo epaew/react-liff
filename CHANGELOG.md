@@ -2,6 +2,16 @@
 
 ## Features
 
+## Bug Fixes
+
+## BREAKING CHANGES
+
+## Others
+
+# v2.0.0
+
+## Features
+
 - [#455](https://github.com/epaew/react-liff/pull/455)
   - Add `plugins` `callback` to LiffProvider optional props to use LIFF plugins.
 
