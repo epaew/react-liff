@@ -8,6 +8,9 @@
 
 ## Others
 
+- [#492](https://github.com/epaew/react-liff/pull/492)
+  - Tests with `@line/liff@2.21`.
+
 # v2.0.0
 
 ## Features
