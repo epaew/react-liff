@@ -68,7 +68,7 @@ jobs:
         run: yarn add -D @line/liff@${{ matrix.liff-sdk.sdk-version }}
 
       - name: yarn run test && report coverage
-        uses: paambaati/codeclimate-action@v3.1.0
+        uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: de17efec54641dd4eb561f1b0bdede12f7e310f921137eb3465771b63cbbe2f0
         with:
