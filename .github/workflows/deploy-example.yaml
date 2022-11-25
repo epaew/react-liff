@@ -16,10 +16,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-          cache: yarn
+          cache: npm
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn run build
+      - run: npm ci
+      - run: npm run build
       - name: Upload the result of build react-liff
         uses: actions/upload-artifact@v3
         with:
@@ -39,15 +39,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-          cache: yarn
+          cache: npm
       - name: Download the result of build react-liff
         uses: actions/download-artifact@v3
         with:
           name: dist
           path: dist
 
-      - run: yarn install
-      - run: yarn run build
+      - run: npm i
+      - run: npm run build
         env:
           REACT_APP_LINE_LIFF_ID: ${{ secrets.LINE_LIFF_ID }}
           NODE_ENV: production
