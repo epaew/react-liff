@@ -17,9 +17,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-          cache: yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn run eslint
+          cache: npm
+      - run: npm ci
+      - run: npm run eslint
 
   prettier:
     name: Prettier
@@ -29,9 +29,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-          cache: yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn run prettier
+          cache: npm
+      - run: npm ci
+      - run: npm run prettier
 
   test:
     name: Jest w/ react@${{ matrix.react.react-version }} @line/liff@${{ matrix.liff-sdk.sdk-version }}
@@ -56,29 +56,29 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-          cache: yarn
-      - run: yarn install --frozen-lockfile
+          cache: npm
+      - run: npm ci
       - name: Reinstall specific version of react.js
         run: |
-          yarn add -D \
+          npm i \
           react@${{ matrix.react.react-version }} \
           react-dom@${{ matrix.react.react-version }} \
           @types/react@${{ matrix.react.react-version }}
       - name: Reinstall specific version of @line/liff SDK
-        run: yarn add -D @line/liff@${{ matrix.liff-sdk.sdk-version }}
+        run: npm i @line/liff@${{ matrix.liff-sdk.sdk-version }}
 
-      - name: yarn run test && report coverage
+      - name: npm run test && report coverage
         uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: de17efec54641dd4eb561f1b0bdede12f7e310f921137eb3465771b63cbbe2f0
         with:
-          coverageCommand: yarn test:ci
+          coverageCommand: npm run test:ci
           coverageLocations: |
             ${{ github.workspace }}/coverage/lcov.info:lcov
           debug: true
 
       - name: Reset local changes
-        run: git checkout . && yarn
+        run: git checkout . && npm ci
 
   build:
     needs: test
@@ -89,10 +89,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-          cache: yarn
-      - run: yarn install --frozen-lockfile
+          cache: npm
+      - run: npm ci
 
-      - run: yarn run build
+      - run: npm run build
       - name: Upload the result of build react-liff
         uses: actions/upload-artifact@v3
         with:
@@ -111,12 +111,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-          cache: yarn
+          cache: npm
       - name: Download the result of build react-liff
         uses: actions/download-artifact@v3
         with:
           name: dist
           path: dist
 
-      - run: yarn install
-      - run: yarn run build
+      - run: npm i && npm run build
