@@ -10,6 +10,8 @@
 
 - [#492](https://github.com/epaew/react-liff/pull/492)
   - Tests with `@line/liff@2.21`.
+- [#553](https://github.com/epaew/react-liff/pull/553)
+  - Use npm as package manager.
 
 # v2.0.0
 
