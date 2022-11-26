@@ -6,8 +6,14 @@
 
 ## BREAKING CHANGES
 
+## Others
+
+# v2.1.0
+
+## BREAKING CHANGES
+
 - [#554](https://github.com/epaew/react-liff/pull/554)
-  - Publish as native ESM.
+  - Now, `react-liff` package is published as native ESM.
 
 ## Others
 
