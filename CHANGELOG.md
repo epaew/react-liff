@@ -6,6 +6,9 @@
 
 ## BREAKING CHANGES
 
+- [#554](https://github.com/epaew/react-liff/pull/554)
+  - Publish as native ESM.
+
 ## Others
 
 - [#492](https://github.com/epaew/react-liff/pull/492)

@@ -2,10 +2,10 @@ import { Liff } from '@line/liff';
 import * as PropTypes from 'prop-types';
 import { createElement, FC, useEffect, useState } from 'react';
 
-import { useLoginStateManager } from '../hooks';
-import { getInitializedLiff } from '../lib';
+import { useLoginStateManager } from '../hooks/index.js';
+import { getInitializedLiff } from '../lib/index.js';
 
-import { CreateLiffProvider, LiffProviderProps } from './types';
+import { CreateLiffProvider, LiffProviderProps } from './types.js';
 
 const LiffProviderPropTypes = {
   children: PropTypes.element.isRequired,

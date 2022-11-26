@@ -19,7 +19,11 @@ interface GetInitializedLiffProps extends LiffConfig {
 
 type GetInitializedLiff = (props: GetInitializedLiffProps) => Promise<Liff>;
 
-const getLiff = async () => window.liff ?? (await import('@line/liff')).default;
+const getLiff = async (): Promise<Liff> => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: This is an issue of @line/liff
+  return window.liff ?? ((await import('@line/liff')).default as Liff);
+};
 
 const registerLiffPlugin = (liff: Liff, plugin: Plugin) => {
   Array.isArray(plugin) ? liff.use(...plugin) : liff.use(plugin);

@@ -1,10 +1,12 @@
-module.exports = {
+// eslint-disable-next-line import/no-default-export
+export default {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts{,x}', '!<rootDir>/src/**/*.test.ts{,x}'],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.test.json',
-    },
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
   },
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'jsdom',
+  transform: {
+    '\\.tsx?$': ['ts-jest', { tsconfig: 'tsconfig.test.json', useESM: true }],
+  },
 };

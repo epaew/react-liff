@@ -1,1 +1,1 @@
-export { useLoginStateManager } from './use-login-state-manager';
+export { useLoginStateManager } from './use-login-state-manager.js';
