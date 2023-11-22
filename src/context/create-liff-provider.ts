@@ -37,7 +37,6 @@ export const createLiffProvider: CreateLiffProvider = context => {
     return createElement(context.Provider, { value: { error, isLoggedIn, isReady, liff } }, children);
   };
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   LiffProvider.propTypes = LiffProviderPropTypes;
   return LiffProvider;

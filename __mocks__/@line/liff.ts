@@ -19,5 +19,4 @@ const liffMock: Partial<IdWritableLiff> = {
   use: jest.fn(),
 };
 
-// eslint-disable-next-line import/no-default-export
 export default liffMock;

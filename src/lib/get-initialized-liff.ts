@@ -1,6 +1,5 @@
 import { Liff, LiffPlugin } from '@line/liff';
 
-// eslint-disable-next-line filenames-simple/typescript-module-declaration
 declare global {
   interface Window {
     liff?: Liff;
@@ -9,7 +8,6 @@ declare global {
 
 type LiffConfig = Parameters<Liff['init']>[0];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Plugin<PluginOption = any> = LiffPlugin<any, void> | [LiffPlugin<any, PluginOption>, PluginOption];
 
 interface GetInitializedLiffProps extends LiffConfig {
@@ -20,7 +18,6 @@ interface GetInitializedLiffProps extends LiffConfig {
 type GetInitializedLiff = (props: GetInitializedLiffProps) => Promise<Liff>;
 
 const getLiff = async (): Promise<Liff> => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore: This is an issue of @line/liff
   return window.liff ?? ((await import('@line/liff')).default as Liff);
 };

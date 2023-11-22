@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-default-export
 export default {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts{,x}', '!<rootDir>/src/**/*.test.ts{,x}'],
   moduleNameMapper: {
