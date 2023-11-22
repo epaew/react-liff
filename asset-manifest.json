@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-liff/static/css/main.5b1f9bb9.css",
-    "main.js": "/react-liff/static/js/main.89265edf.js",
-    "static/js/276.00c29232.chunk.js": "/react-liff/static/js/276.00c29232.chunk.js",
+    "main.css": "/react-liff/static/css/main.2762ce8d.css",
+    "main.js": "/react-liff/static/js/main.9a1d38e0.js",
+    "static/js/165.4509b1fe.chunk.js": "/react-liff/static/js/165.4509b1fe.chunk.js",
     "static/media/logo.svg": "/react-liff/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
     "index.html": "/react-liff/index.html",
-    "main.5b1f9bb9.css.map": "/react-liff/static/css/main.5b1f9bb9.css.map",
-    "main.89265edf.js.map": "/react-liff/static/js/main.89265edf.js.map",
-    "276.00c29232.chunk.js.map": "/react-liff/static/js/276.00c29232.chunk.js.map"
+    "main.2762ce8d.css.map": "/react-liff/static/css/main.2762ce8d.css.map",
+    "main.9a1d38e0.js.map": "/react-liff/static/js/main.9a1d38e0.js.map",
+    "165.4509b1fe.chunk.js.map": "/react-liff/static/js/165.4509b1fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b1f9bb9.css",
-    "static/js/main.89265edf.js"
+    "static/css/main.2762ce8d.css",
+    "static/js/main.9a1d38e0.js"
   ]
 }
