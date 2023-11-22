@@ -19,10 +19,6 @@
       "last 1 safari version"
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app",
-    "root": true
-  },
   "dependencies": {
     "@line/liff": "^2.20.2",
     "@line/liff-mock": "^1.0.1",
