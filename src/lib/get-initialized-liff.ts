@@ -8,6 +8,7 @@ declare global {
 
 type LiffConfig = Parameters<Liff["init"]>[0];
 
+// biome-ignore lint/suspicious/noExplicitAny:
 type Plugin<PluginOption = any> = LiffPlugin<any, void> | [LiffPlugin<any, PluginOption>, PluginOption];
 
 interface GetInitializedLiffProps extends LiffConfig {
@@ -29,7 +30,9 @@ const registerLiffPlugin = (liff: Liff, plugin: Plugin) => {
 const getInitializedLiff: GetInitializedLiff = async ({ plugins = [], callback = () => {}, ...liffConfig }) => {
   const liff = await getLiff();
 
-  plugins.forEach((plugin) => registerLiffPlugin(liff, plugin));
+  for (const plugin of plugins) {
+    registerLiffPlugin(liff, plugin);
+  }
   await liff.init(liffConfig);
   await callback(liff);
 

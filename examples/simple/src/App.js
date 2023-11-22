@@ -15,7 +15,7 @@ function App() {
       const profile = await liff.getProfile();
       setDisplayName(profile.displayName);
     })();
-  });
+  }, [isLoggedIn, liff.getProfile]);
 
   const loginHandler = () => {
     liff.login();
@@ -30,7 +30,7 @@ function App() {
 
     if (!isLoggedIn) {
       return (
-        <button className="App-button" onClick={loginHandler}>
+        <button className="App-button" onClick={loginHandler} type="submit">
           Login
         </button>
       );
@@ -38,7 +38,7 @@ function App() {
     return (
       <>
         <p>Welcome to the react-liff demo app, {displayName}!</p>
-        <button className="App-button" onClick={logoutHandler}>
+        <button className="App-button" onClick={logoutHandler} type="submit">
           Logout
         </button>
       </>
