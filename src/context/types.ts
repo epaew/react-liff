@@ -1,7 +1,7 @@
-import type { Liff } from '@line/liff';
-import type { Consumer, Context, FC, ReactNode } from 'react';
+import type { Liff } from "@line/liff";
+import type { Consumer, Context, FC, ReactNode } from "react";
 
-import type { GetInitializedLiffProps } from '../lib/index.js';
+import type { GetInitializedLiffProps } from "../lib/index.js";
 
 export interface CreateLiffContext {
   (): {

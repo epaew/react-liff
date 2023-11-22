@@ -1,11 +1,11 @@
-import { Liff } from '@line/liff';
-import * as PropTypes from 'prop-types';
-import { createElement, FC, useEffect, useState } from 'react';
+import { Liff } from "@line/liff";
+import * as PropTypes from "prop-types";
+import { FC, createElement, useEffect, useState } from "react";
 
-import { useLoginStateManager } from '../hooks/index.js';
-import { getInitializedLiff } from '../lib/index.js';
+import { useLoginStateManager } from "../hooks/index.js";
+import { getInitializedLiff } from "../lib/index.js";
 
-import { CreateLiffProvider, LiffProviderProps } from './types.js';
+import { CreateLiffProvider, LiffProviderProps } from "./types.js";
 
 const LiffProviderPropTypes = {
   children: PropTypes.element.isRequired,
@@ -15,7 +15,7 @@ const LiffProviderPropTypes = {
   callback: PropTypes.func,
 };
 
-export const createLiffProvider: CreateLiffProvider = context => {
+export const createLiffProvider: CreateLiffProvider = (context) => {
   const LiffProvider: FC<LiffProviderProps> = ({ children, ...rest }) => {
     const [error, setError] = useState<unknown>();
     const [isReady, setIsReady] = useState(false);
@@ -37,7 +37,6 @@ export const createLiffProvider: CreateLiffProvider = context => {
     return createElement(context.Provider, { value: { error, isLoggedIn, isReady, liff } }, children);
   };
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   LiffProvider.propTypes = LiffProviderPropTypes;
   return LiffProvider;

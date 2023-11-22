@@ -1,8 +1,8 @@
-import { Liff } from '@line/liff';
-import { createContext, useContext } from 'react';
+import { Liff } from "@line/liff";
+import { createContext, useContext } from "react";
 
-import { createLiffProvider } from './create-liff-provider.js';
-import { CreateLiffContext, LiffContextStates } from './types.js';
+import { createLiffProvider } from "./create-liff-provider.js";
+import { CreateLiffContext, LiffContextStates } from "./types.js";
 
 export const createLiffContext: CreateLiffContext = () => {
   const context = createContext<LiffContextStates>({
@@ -10,7 +10,7 @@ export const createLiffContext: CreateLiffContext = () => {
     isReady: false,
     liff: {} as Liff,
   });
-  context.displayName = 'LiffContext';
+  context.displayName = "LiffContext";
 
   return {
     LiffConsumer: context.Consumer,

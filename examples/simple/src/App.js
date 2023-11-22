@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import logo from "./logo.svg";
 
-import { useLiff } from 'react-liff';
+import { useLiff } from "react-liff";
 
 function App() {
   const { error, isLoggedIn, isReady, liff } = useLiff();
-  const [displayName, setDisplayName] = useState('');
+  const [displayName, setDisplayName] = useState("");
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -15,7 +15,7 @@ function App() {
       const profile = await liff.getProfile();
       setDisplayName(profile.displayName);
     })();
-  });
+  }, [isLoggedIn, liff.getProfile]);
 
   const loginHandler = () => {
     liff.login();
@@ -29,15 +29,21 @@ function App() {
     if (!isReady) return <p>Loading...</p>;
 
     if (!isLoggedIn) {
-      return <button className="App-button" onClick={loginHandler}>Login</button>;
+      return (
+        <button className="App-button" onClick={loginHandler} type="submit">
+          Login
+        </button>
+      );
     }
     return (
       <>
         <p>Welcome to the react-liff demo app, {displayName}!</p>
-        <button className="App-button" onClick={logoutHandler}>Logout</button>
+        <button className="App-button" onClick={logoutHandler} type="submit">
+          Logout
+        </button>
       </>
     );
-  }
+  };
 
   return (
     <div className="App">

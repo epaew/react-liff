@@ -10,6 +10,8 @@
 
 - [#599](https://github.com/epaew/react-liff/pull/599)
   - Tests with `@line/liff@2.22`.
+- [#600](https://github.com/epaew/react-liff/pull/600)
+  - Use Biome instead of ESLint and Prettier.
 
 # v2.1.0
 

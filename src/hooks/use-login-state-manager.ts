@@ -1,5 +1,5 @@
-import { Liff } from '@line/liff';
-import { useEffect, useState } from 'react';
+import { Liff } from "@line/liff";
+import { useEffect, useState } from "react";
 
 export const useLoginStateManager = (liff: Liff | undefined): [boolean, Liff] => {
   const { isLoggedIn = () => false, login = () => {}, logout = () => {}, ...rest } = liff ?? {};
@@ -9,11 +9,11 @@ export const useLoginStateManager = (liff: Liff | undefined): [boolean, Liff] =>
     setLoginState(isLoggedIn());
   }, [isLoggedIn]);
 
-  const customLogin: Liff['login'] = (...args) => {
+  const customLogin: Liff["login"] = (...args) => {
     login(...args);
     setLoginState(isLoggedIn());
   };
-  const customLogout: Liff['logout'] = () => {
+  const customLogout: Liff["logout"] = () => {
     logout();
     setLoginState(isLoggedIn());
   };
