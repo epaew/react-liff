@@ -1,4 +1,4 @@
-import { Liff, LiffPlugin } from '@line/liff';
+import { Liff, LiffPlugin } from "@line/liff";
 
 declare global {
   interface Window {
@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-type LiffConfig = Parameters<Liff['init']>[0];
+type LiffConfig = Parameters<Liff["init"]>[0];
 
 type Plugin<PluginOption = any> = LiffPlugin<any, void> | [LiffPlugin<any, PluginOption>, PluginOption];
 
@@ -19,7 +19,7 @@ type GetInitializedLiff = (props: GetInitializedLiffProps) => Promise<Liff>;
 
 const getLiff = async (): Promise<Liff> => {
   // @ts-ignore: This is an issue of @line/liff
-  return window.liff ?? ((await import('@line/liff')).default as Liff);
+  return window.liff ?? ((await import("@line/liff")).default as Liff);
 };
 
 const registerLiffPlugin = (liff: Liff, plugin: Plugin) => {
@@ -29,7 +29,7 @@ const registerLiffPlugin = (liff: Liff, plugin: Plugin) => {
 const getInitializedLiff: GetInitializedLiff = async ({ plugins = [], callback = () => {}, ...liffConfig }) => {
   const liff = await getLiff();
 
-  plugins.forEach(plugin => registerLiffPlugin(liff, plugin));
+  plugins.forEach((plugin) => registerLiffPlugin(liff, plugin));
   await liff.init(liffConfig);
   await callback(liff);
 

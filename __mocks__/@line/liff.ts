@@ -1,6 +1,6 @@
-import { Liff } from '@line/liff';
+import { Liff } from "@line/liff";
 
-type IdWritableLiff = Omit<Liff, 'id'> & { id: string | null };
+type IdWritableLiff = Omit<Liff, "id"> & { id: string | null };
 
 let loginState = false;
 

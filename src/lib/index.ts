@@ -1,1 +1,1 @@
-export * from './get-initialized-liff.js';
+export * from "./get-initialized-liff.js";
