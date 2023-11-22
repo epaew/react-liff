@@ -49,6 +49,8 @@ jobs:
             continue-on-error: false
           - sdk-version: '2.21'
             continue-on-error: false
+          - sdk-version: '2.22'
+            continue-on-error: false
           - sdk-version: latest
             continue-on-error: true
     steps:
