@@ -103,7 +103,7 @@ jobs:
           node-version: 'lts/*'
           cache: npm
       - name: Download the result of build react-liff
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
